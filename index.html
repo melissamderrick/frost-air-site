@@ -36,7 +36,8 @@
     <a href="/index.html" class="text-blue-900 font-bold">Home</a>
     <a href="/services/index.html">Services</a>
     <a href="/about/index.html">About</a>
-    <a href="/contact/index.html">Contact</a>
+    <a href="/contact/index.html#book">Book Now</a>
+
   </div>
  </nav>
 
@@ -68,5 +69,20 @@
   <footer class="bg-blue-200 text-center text-blue-900 py-4 text-sm">
     © 2025 Frost Air . Stay Frosty . ROC 356420
   </footer>
+
+  <!-- Housecall Pro Booking Button -->
+<div class="text-center mt-10">
+  <button 
+    data-token="2fc32083d0d34a2d8eb08ce327d13565" 
+    data-orgname="Frost-Air" 
+    class="hcp-button bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-xl text-lg"
+    onClick="HCPWidget.openModal()"
+  > 
+    Book Online 
+  </button>
+</div>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
+
 </body>
 </html>
