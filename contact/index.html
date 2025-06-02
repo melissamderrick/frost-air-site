@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Frost Air | Schedule HVAC Service in Arizona</title>
   <meta name="description" content="Contact Frost Air to schedule professional HVAC services including AC repair and maintenance across Phoenix, Mesa, and surrounding Arizona cities. Stay Frosty with Frost Air!" />
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="Contact Frost Air - Arizona's HVAC Experts" />
   <meta property="og:description" content="Schedule fast and reliable HVAC services in Phoenix, Mesa, and beyond. Book online today with Frost Air!" />
   <meta property="og:image" content="https://frostairaz.com/assets/logo_c.png" />
   <meta property="og:url" content="https://frostairaz.com/contact" />
   <meta property="og:type" content="website" />
-  
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYPPEMNZMQ"></script>
   <script>
@@ -42,16 +42,21 @@
   <header class="bg-blue-200 text-center py-20 px-4">
     <h1 class="text-5xl font-bold text-blue-800 mb-4">Frost Air</h1>
     <p class="text-xl text-blue-900 mb-6">Arizona’s HVAC Experts — Professional, Reliable & Local</p>
-    <a href="#book" class="inline-block bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow hover:bg-blue-800 transition">
-      Schedule Your Service
-    </a>
+    <button 
+      data-token="2fc32083d0d34a2d8eb08ce327d13565" 
+      data-orgname="Frost-Air" 
+      class="hcp-button bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow hover:bg-blue-800 transition"
+      onClick="HCPWidget.openModal()"
+    >
+      Book Online
+    </button>
   </header>
 
   <!-- Contact Info -->
   <main class="py-16 px-6 text-center">
     <h2 class="text-3xl font-bold text-blue-700 mb-4">Let's Get You Scheduled</h2>
-    <p class="text-gray-700 mb-8">Have questions or need help? Call, email, or book directly below.</p>
-    
+    <p class="text-gray-700 mb-8">Call, email, or book your HVAC appointment below.</p>
+
     <div class="flex flex-col items-center gap-4 text-lg text-blue-800 mb-10">
       <div class="flex items-center gap-2">
         <span>📞</span><a href="tel:4802562515" class="hover:underline">(480) 256-2515</a>
@@ -61,47 +66,34 @@
       </div>
     </div>
 
-    <!-- Divider -->
-    <div class="my-8 border-t border-blue-200 w-3/4 mx-auto"></div>
-
-    <!-- Booking Section -->
-    <section id="book" class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-blue-700 mb-4">Book Online</h2>
-      <p class="text-gray-600 mb-6">Choose the option that works best for you:</p>
-
-      <!-- Booking Modal Button -->
-      <div class="mb-6">
-        <button 
-          data-token="2fc32083d0d34a2d8eb08ce327d13565" 
-          data-orgname="Frost-Air" 
-          class="hcp-button bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl shadow text-lg"
-          onClick="HCPWidget.openModal()"
-        >
-          Book with Pop-Up
-        </button>
-      </div>
-
-      <p class="text-sm text-gray-500 mb-4">Or use the embedded booking tool below:</p>
-
-      <!-- Embedded Booking Iframe -->
-      <iframe 
-        src="https://book.housecallpro.com/book/2fc32083d0d34a2d8eb08ce327d13565"
-        style="width:100%; height:700px; border:none; border-radius: 0.75rem;"
-        loading="lazy"
-        title="Book Frost Air Service"
-      ></iframe>
-    </section>
+    <!-- CTA Button Again -->
+    <div class="mt-12">
+      <button 
+        data-token="2fc32083d0d34a2d8eb08ce327d13565" 
+        data-orgname="Frost-Air" 
+        class="hcp-button bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow hover:bg-blue-800 transition"
+        onClick="HCPWidget.openModal()"
+      >
+        Book Online
+      </button>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="bg-blue-200 text-center text-blue-900 py-8 text-sm">
     <p class="mb-4">© 2025 Frost Air · Stay Frosty · ROC 356420</p>
-    <a href="#book" class="inline-block bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow hover:bg-blue-800 transition">
+    <button 
+      data-token="2fc32083d0d34a2d8eb08ce327d13565" 
+      data-orgname="Frost-Air" 
+      class="hcp-button bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow hover:bg-blue-800 transition"
+      onClick="HCPWidget.openModal()"
+    >
       Schedule Your Service
-    </a>
+    </button>
   </footer>
 
   <!-- Housecall Pro Script -->
   <script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
 </body>
 </html>
+
