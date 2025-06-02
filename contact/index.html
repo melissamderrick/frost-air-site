@@ -44,7 +44,7 @@
     <p class="text-xl text-blue-900 mb-6">Arizona’s HVAC Experts — Professional, Reliable & Local</p>
   </header>
 
-  <!-- Contact Info -->
+  <!-- Contact Info + CTA -->
   <main class="py-16 px-6 text-center">
     <h2 class="text-3xl font-bold text-blue-700 mb-4">Let's Get You Scheduled</h2>
     <p class="text-gray-700 mb-8">Call, email, or book your HVAC appointment below.</p>
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <!-- CTA Button Again -->
+    <!-- CTA Button -->
     <div class="mt-12">
       <button 
         data-token="2fc32083d0d34a2d8eb08ce327d13565" 
@@ -71,13 +71,59 @@
     </div>
   </main>
 
+  <!-- Service Area Section -->
+  <section class="bg-white py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold text-blue-700 mb-4">Proudly Serving Arizona</h2>
+    <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+      From the Phoenix Metro to the pines of Flagstaff and Prescott — Frost Air has you covered.
+    </p>
+
+    <div class="max-w-xl mx-auto mb-8">
+      <button 
+        onclick="document.getElementById('service-list').classList.toggle('hidden')" 
+        class="bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-blue-800 transition w-full sm:w-auto"
+      >
+        View Cities We Serve
+      </button>
+      <ul id="service-list" class="hidden mt-6 text-blue-800 text-lg font-medium grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <li>📍 Phoenix</li>
+        <li>📍 Mesa</li>
+        <li>📍 Chandler</li>
+        <li>📍 Gilbert</li>
+        <li>📍 Tempe</li>
+        <li>📍 Scottsdale</li>
+        <li>📍 Queen Creek</li>
+        <li>📍 San Tan Valley</li>
+        <li>📍 Apache Junction</li>
+        <li>📍 Payson</li>
+        <li>📍 Flagstaff</li>
+        <li>📍 Prescott</li>
+      </ul>
+    </div>
+
+    <!-- Placeholder for Google Map Embed -->
+    <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+      <!-- Replace the URL below once your map is ready -->
+      <iframe 
+        src="https://www.google.com/maps/d/u/0/embed?mid=YOUR_MAP_ID_HERE" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <p class="text-sm text-gray-500 mt-6">
+      Unsure if you're in our service area? <a href="tel:4802562515" class="underline text-blue-700">Call us</a> and we’ll confirm!
+    </p>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-blue-200 text-center text-blue-900 py-8 text-sm">
     <p class="mb-4">© 2025 Frost Air · Stay Frosty · ROC 356420</p>
   </footer>
 
   <!-- Housecall Pro Script -->
-  <script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
-</body>
-</html>
-
+  <script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></scri
