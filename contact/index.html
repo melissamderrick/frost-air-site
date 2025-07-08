@@ -7,15 +7,19 @@
     <meta name="description" content="Frost Air provides reliable, honest HVAC repair, installation, and maintenance services across Phoenix, Mesa, Chandler, Gilbert, San Tan Valley, Queen Creek, Prescott, Payson, and surrounding Arizona areas within 100 miles, keeping you comfortable year-round.">
     <meta name="keywords" content="HVAC, AC Repair, Heating, Cooling, Phoenix, Mesa, Chandler, Gilbert, San Tan Valley, Queen Creek, Prescott, Payson, Arizona, Frost Air, HVAC Installation, HVAC Maintenance">
     <meta name="author" content="Frost Air">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://frostairaz.com/">
     <meta property="og:title" content="Frost Air | Phoenix HVAC Services">
     <meta property="og:description" content="Reliable HVAC repair, installation, and maintenance in Phoenix, Mesa, Chandler, Gilbert, and surrounding Arizona areas.">
     <meta property="og:image" content="https://frostairaz.com/og-image.jpg">
     <meta property="og:url" content="https://frostairaz.com/">
     <meta property="og:type" content="website">
-    
-	<script src="https://cdn.tailwindcss.com"></script>
-	<!-- Google Analytics -->
+
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-487458746"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -23,38 +27,43 @@
       gtag('js', new Date());
       gtag('config', 'G-487458746');
     </script>
+
     <style>
       body { background: linear-gradient(to bottom, #e0f2fe, #f0f9ff); }
       header { backdrop-filter: blur(10px); }
       h2, h3 { font-family: 'Helvetica Neue', sans-serif; }
       .frost-card { background: white; border-radius: 1rem; box-shadow: 0 10px 15px rgba(147, 197, 253, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
       .frost-card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(147, 197, 253, 0.5); }
+      @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+      .animate-marquee { animation: marquee 20s linear infinite; }
     </style>
-	
-	
-  <script type="application/ld+json">{
-    "@context": "https://schema.org",
-    "@type": "HVACBusiness",
-    "name": "Frost Air",
-    "url": "https://frostairaz.com/",
-    "logo": "https://frostairaz.com/logo_c.png",
-    "image": "https://frostairaz.com/og-image.jpg",
-    "description": "Reliable, honest HVAC repair, installation, and maintenance services across Arizona.",
-    "telephone": "+14802562515",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "AZ",
-      "addressCountry": "USA"
-    }
 
-	
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HVACBusiness",
+      "name": "Frost Air",
+      "url": "https://frostairaz.com/",
+      "logo": "https://frostairaz.com/logo_c.png",
+      "image": "https://frostairaz.com/og-image.jpg",
+      "description": "Reliable, honest HVAC repair, installation, and maintenance services across Arizona.",
+      "telephone": "+14802562515",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Queen Creek",
+        "addressRegion": "AZ",
+        "postalCode": "85142",
+        "addressCountry": "USA"
+      }
+    }
+    </script>
 </head>
 <body>
 
 <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-lg text-blue-900 shadow-lg shadow-blue-200 py-4">
   <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
-    <img src="logo_c.png" alt="Frost Air Logo" class="w-20" loading="lazy">
-    <nav class="space-x-6 text-lg">
+    <img src="https://frostairaz.com/logo_c.png" alt="Frost Air HVAC Logo - Phoenix AZ" class="w-20" loading="lazy">
+    <nav aria-label="Main Navigation" class="space-x-6 text-lg">
       <a href="/services" class="hover:text-blue-500" rel="noopener noreferrer">Services</a>
       <a href="/contact" class="hover:text-blue-500" rel="noopener noreferrer">Contact</a>
       <a href="/about" class="hover:text-blue-500" rel="noopener noreferrer">About</a>
@@ -63,7 +72,6 @@
       <a href="tel:+14802562515" class="bg-green-600 text-white px-5 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium tracking-wide">Call 480-256-2515</a>
       <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium tracking-wide">Book Online</a>
     </div>
-	  <script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
   </div>
 </header>
 
@@ -75,7 +83,7 @@
     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
         <a href="tel:4802562515" class="bg-green-600 text-white px-6 py-3 rounded-full shadow hover:bg-green-700 transition text-lg">(480) 256-2515</a>
         <a href="mailto:info@frostairaz.com" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition text-lg">info@frostairaz.com</a>
-        <button 
+        <button aria-label="Book your HVAC appointment online" 
             data-token="2fc32083d0d34a2d8eb08ce327d13565" 
             data-orgname="Frost-Air" 
             class="bg-blue-800 text-white px-6 py-3 rounded-full shadow hover:bg-blue-900 transition text-lg"
@@ -88,6 +96,7 @@
 
     <div class="max-w-xl mx-auto mb-8">
       <button 
+        aria-label="View list of cities Frost Air serves"
         onclick="document.getElementById('service-list').classList.toggle('hidden')" 
         class="bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-blue-800 transition w-full sm:w-auto"
       >View Cities We Serve</button>
@@ -109,6 +118,7 @@
 
     <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg mt-8">
       <iframe 
+        title="Frost Air Service Area Map"
         src="https://www.google.com/maps/d/u/0/embed?mid=1iNa-rRPS-d03vwh8cSpcKI-nAFIQFPo" 
         width="100%" 
         height="450" 
@@ -127,22 +137,14 @@
     Financing Available · New AC Units from $5,516 · <a href="tel:+14802562515" class="underline hover:text-blue-200">Call Now for Details</a>
   </div>
 </div>
-	
-<p class="text-center text-xs text-blue-600 mt-4">*Prices listed are starting estimates and may vary based on your specific needs. Call us to confirm current rates and specials</p>
+
+<p class="text-center text-xs text-blue-600 mt-4">*Prices listed are starting estimates and may vary based on your specific needs. Call us to confirm current rates and specials.</p>
 
 <footer class="text-center text-blue-900 py-6 bg-white/80 backdrop-blur-md text-sm">
   © 2025 Frost Air | Stay Frosty | ROC #356420 | CCE Dealer | Licensed, bonded & insured
 </footer>
 
-<style>
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-}
-</style>
+<script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
 
 </body>
 </html>
