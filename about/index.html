@@ -23,7 +23,8 @@
   gtag('config', 'G-HYPPEMNZMQ');
 </script>
 	
-  <script src="https://cdn.tailwindcss.com"></script>
+ <script src="https://cdn.tailwindcss.com" defer></script>
+	
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
@@ -38,28 +39,30 @@
       "addressRegion": "AZ",
       "addressCountry": "USA"
     }
-  }</script>
-	
+  }</script>	
 </head>
-<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900 pb-16">
+	<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900 pb-16">
 
 <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200 py-4">
-	<div class="max-w-7xl mx-auto flex justify-between items-center px-4">
-		<img src="/assets/logo_c.png" alt="Frost Air HVAC Logo - Arizona" class="w-20" loading="lazy">
-		<nav aria-label="Main Navigation" class="space-x-4 md:space-x-6 text-base md:text-lg">
-			<a href="/index.html" class="hover:text-blue-500">Home</a>
-			<a href="/services" class="hover:text-blue-500">Services</a>
-			<a href="/contact" class="hover:text-blue-500">Contact</a>
-			<a href="/about" class="text-blue-900 font-bold">About</a>		
-		
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+    <img src="/assets/logo_c.png" alt="Frost Air HVAC Logo - Arizona" class="w-20" loading="lazy">
+    <nav aria-label="Main Navigation" class="space-x-4 md:space-x-6 text-base md:text-lg">
+      <a href="/index.html" class="hover:text-blue-500">Home</a>
+      <a href="/services" class="hover:text-blue-500">Services</a>
+      <a href="/contact" class="hover:text-blue-500">Contact</a>
+      <a href="/about" class="text-blue-900 font-bold">About</a>
     </nav>
     <div class="hidden md:flex space-x-3">
       <a href="tel:+14802562515" class="bg-green-600 text-white px-5 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium tracking-wide">Call Now</a>
-      <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium tracking-wide">Book Online</a>
-	    </div>
-<script async src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
-
+      <button
+        data-token="2fc32083d0d34a2d8eb08ce327d13565"
+        data-orgname="Frost-Air"
+        onClick="HCPWidget.openModal()"
+        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium tracking-wide">
+        Book Online
+      </button>
     </div>
+   </div>
 </header>
 
 
@@ -142,6 +145,6 @@
   animation: marquee 20s linear infinite;
 }
 </style>
-
+<script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
 </body>
 </html>
