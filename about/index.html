@@ -1,122 +1,81 @@
-<!DOCTYPE html>
+review - <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frost Air | Phoenix AZ HVAC Repair, Installation & Maintenance</title>
-  <meta name="description" content="Frost Air provides reliable, honest HVAC repair, installation, and maintenance services across Arizona, keeping you comfortable year-round." />
-  <meta name="keywords" content="HVAC, AC Repair, Heating, Cooling, Phoenix, Mesa, Chandler, Gilbert, Arizona, Frost Air, HVAC Installation, HVAC Maintenance" />
-  <meta name="author" content="Frost Air Team, Phoenix AZ" />
-  <link rel="canonical" href="https://frostairaz.com/" />
-  <meta property="og:title" content="Frost Air | Phoenix HVAC Services" />
-  <meta property="og:description" content="Reliable HVAC repair, installation, and maintenance across Arizona." />
-  <meta property="og:image" content="https://frostairaz.com/og-image.jpg" />
-  <meta property="og:url" content="https://frostairaz.com/" />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Frost Air provides reliable, honest HVAC repair, installation, and maintenance services across Arizona, keeping you comfortable year-round.">
+  <meta name="keywords" content="HVAC, AC Repair, Heating, Cooling, Phoenix, Mesa, Chandler, Gilbert, Arizona, Frost Air, HVAC Installation, HVAC Maintenance">
+  <meta name="author" content="Frost Air">
+  <link rel="canonical" href="https://frostairaz.com/">
+  <meta property="og:title" content="Frost Air | Phoenix HVAC Services">
+  <meta property="og:description" content="Reliable HVAC repair, installation, and maintenance across Arizona.">
+  <meta property="og:image" content="https://frostairaz.com/og-image.jpg">
+  <meta property="og:url" content="https://frostairaz.com/">
+  <meta property="og:type" content="website">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYPPEMNZMQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-HYPPEMNZMQ');
-  </script>
-
-  <style>
-    .animate-marquee {
-      animation: marquee 15s linear infinite;
-    }
-    .animate-marquee:hover {
-      animation-play-state: paused;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-  </style>
-
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HVACBusiness",
-      "name": "Frost Air",
-      "url": "https://frostairaz.com/",
-      "logo": "https://frostairaz.com/FrostAir_HorizontalDark.png",
-      "image": "https://frostairaz.com/og-image.jpg",
-      "description": "Reliable, honest HVAC repair, installation, and maintenance services across Arizona.",
-      "telephone": "+14802562515",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Phoenix",
-        "addressRegion": "AZ",
-        "postalCode": "85001",
-        "addressCountry": "USA"
-      },
-      "areaServed": [
-        "Phoenix", "Mesa", "Chandler", "Gilbert", "Casa Grande", "Tempe", "Scottsdale", "Glendale"
-      ],
-      "hasMap": "https://www.google.com/maps/place/Frost+Air+AZ",
-      "openingHours": "Mo-Sa 08:00-18:00"
-    }
-  </script>
-</head>
-<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900 pb-16">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HYPPEMNZMQ"></script>
 <script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HYPPEMNZMQ');
 </script>
+	
+ <script src="https://cdn.tailwindcss.com" defer></script>
+	
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Frost Air",
+    "url": "https://frostairaz.com/",
+    "logo": "https://frostairaz.com/FrostAir_HorizontalDark.png",
+    "image": "https://frostairaz.com/og-image.jpg",
+    "description": "Reliable, honest HVAC repair, installation, and maintenance services across Arizona.",
+    "telephone": "+14802562515",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "AZ",
+      "addressCountry": "USA"
+    }
+  }</script>	
+</head>
+	<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900 pb-16">
 
-<!-- HEADER -->
 <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative">
-    <a href="/" class="z-10">
-      <img src="/assets/FrostAir_HorizontalDark.png" alt="Frost Air Logo" class="w-40 md:w-56 lg:w-64 h-auto" loading="lazy">
-    </a>
-	  
-<!-- Overlapping Logo -->
+  <div class="relative max-w-7xl mx-auto flex items-center justify-between px-4 pt-16 md:pt-20 lg:pt-24">
+    
+    <!-- Overlapping Logo -->
     <img src="/assets/FrostAir_HorizontalDark.png"
          alt="Frost Air Heating & Cooling Logo"
-         class="absolute top-0 left-4 w-40 md:w-56 lg:w-64 h-auto z-50 drop-shadow-lg" loading="lazy">	
-	  
-<!-- NAVIGATION -->  
-    <nav class="hidden md:flex space-x-6 text-base md:text-lg text-blue-900 font-medium">
+         class="absolute top-0 left-4 w-40 md:w-56 lg:w-64 h-auto z-50 drop-shadow-lg" loading="lazy">
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation" class="flex-1 text-right space-x-4 md:space-x-6 text-base md:text-lg">
       <a href="/index.html" class="hover:text-blue-500">Home</a>
       <a href="/services" class="hover:text-blue-500">Services</a>
       <a href="/contact" class="hover:text-blue-500">Contact</a>
       <a href="/about" class="text-blue-900 font-bold">About</a>
     </nav>
-	  
-	  
-    <div class="hidden md:flex items-center space-x-3">
-      <a href="tel:+14802562515" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">Call Now</a>
-      <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" onClick="HCPWidget.openModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">Book Online</button>
+
+    <!-- CTA buttons -->
+    <div class="hidden md:flex space-x-3 ml-4">
+      <a href="tel:+14802562515"
+         class="bg-green-600 text-white px-5 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium tracking-wide">Call Now</a>
+      <button
+        data-token="2fc32083d0d34a2d8eb08ce327d13565"
+        data-orgname="Frost-Air"
+        onClick="HCPWidget.openModal()"
+        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium tracking-wide">
+        Book Online
+      </button>
     </div>
-	  
-    <button onclick="toggleMenu()" class="md:hidden text-blue-800 z-10">
-      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-	
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-right text-blue-800 bg-white/90 shadow-md">
-    <a href="/index.html" class="block py-2 hover:text-blue-500">Home</a>
-    <a href="/services" class="block py-2 hover:text-blue-500">Services</a>
-    <a href="/contact" class="block py-2 hover:text-blue-500">Contact</a>
-    <a href="/about" class="block py-2 font-bold">About</a>
-    <a href="tel:+14802562515" class="block py-2 text-green-700 font-semibold">📞 Call Now</a>
-    <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" onClick="HCPWidget.openModal()" class="block w-full text-left py-2 text-blue-600 font-semibold hover:text-blue-800">🗓️ Book Online</button>
   </div>
 </header>
+<!-- all sections match -->		
 
-<!-- REMAINING PAGE CONTENT GOES HERE (unchanged) -->
+<section id="why-choose-us" class="pt-22 md:pt-16 lg:pt-20 text-center bg-gradient-to-br from-white via-blue-50 to-white rounded-2xl shadow-lg max-w-6xl mx-auto my-12 px-6 md:px-10 relative overflow-hidden">
   <!-- Snowflake Background -->
   <div class="absolute inset-0 bg-[url('/snowflake-pattern.png')] bg-cover bg-center opacity-10 pointer-events-none"></div>
 
@@ -127,9 +86,7 @@
 
   <!-- Mission Statement -->
   <p class="max-w-2xl mx-auto text-lg md:text-xl text-blue-700 mb-10 leading-relaxed">
-    To keep Arizona comfortable year-round with reliable, honest, and high-quality HVAC services that respect your time, your home, and your budget.
-      We deliver AAA service and back it with real value that Arizona homeowners trust.
-
+    We deliver AAA service and back it with real value that Arizona homeowners trust.
   </p>
 
   <!-- AAA Service Promise (No Boxes) -->
@@ -174,31 +131,42 @@
 </section>
 
 
+<section id="reviews" class="py-20 bg-gradient-to-b from-white via-blue-50 to-white text-center">
+  <h2 class="text-5xl font-extrabold text-blue-800 mb-8">Customer Testimonials</h2>
+  <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
+      <p class="text-yellow-400 text-2xl">★★★★★</p>
+      <p class="mt-4 text-blue-800">"Frost Air exceeded our expectations with their professionalism and quick AC install. We will use them again!"</p>
+      <p class="mt-2 italic text-blue-600">- Adriana K., Angi</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
+      <p class="text-yellow-400 text-2xl">★★★★★</p>
+      <p class="mt-4 text-blue-800">"Incredible service, fast response, and honest pricing. Our home is cool again thanks to Frost Air!"</p>
+      <p class="mt-2 italic text-blue-600">- Ryan D., Google</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
+      <p class="text-yellow-400 text-2xl">★★★★★</p>
+      <p class="mt-4 text-blue-800">"Friendly, knowledgeable, and clean work. Highly recommend for any HVAC needs in Arizona!"</p>
+      <p class="mt-2 italic text-blue-600">- Tonya S., Facebook</p>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-center gap-4 mt-10">
+    <a href="https://www.google.com/search?q=Frost+Air+Arizona" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">Google Reviews</a>
+    <a href="https://www.angi.com/companylist/us/az/casa-grande/frost-air-llc-reviews-1.htm" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-full shadow hover:bg-green-700 transition">Angi Reviews</a>
+    <a href="https://www.facebook.com/people/Frost-Air-LLC/61574608903910/" target="_blank" class="bg-blue-800 text-white px-6 py-3 rounded-full shadow hover:bg-blue-900 transition">Facebook Reviews</a>
+  </div>
+</section>
 
+<!-- Contact Us -->
+<section id="contact" class="py-16 text-center bg-blue-50">
+  <h2 class="text-4xl font-bold text-blue-800 mb-4">Ready to Stay Frosty?</h2>
+  <p class="text-lg text-blue-700 mb-8 max-w-xl mx-auto">Contact Frost Air today for reliable, honest HVAC services across Arizona.</p>
+  <div class="space-x-4">
+    <a href="tel:+14802562515" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">Call 480-256-2515</a>
+    <a href="mailto:info@frostairaz.com" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">Email Us</a>
+  </div>
+</section>
 
-
-<!-- Value-Based Selling Points -->
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left text-blue-800">
-    <div class="bg-white rounded-xl p-6 shadow border border-blue-100">
-      <p class="text-xl font-semibold mb-2">✅ Honest, Upfront Pricing</p>
-      <p>No hidden fees. No pressure. Just fair rates you can count on.</p>
-    </div>
-    <div class="bg-white rounded-xl p-6 shadow border border-blue-100">
-      <p class="text-xl font-semibold mb-2">🛠️ Done Right the First Time</p>
-      <p>Certified techs. Quality parts. Solutions that actually last.</p>
-    </div>
-    <div class="bg-white rounded-xl p-6 shadow border border-blue-100">
-      <p class="text-xl font-semibold mb-2">📍 Locally Owned & Operated</p>
-      <p>We’re your neighbors — not a call center or out-of-state chain.</p>
-    </div>
-    <div class="bg-white rounded-xl p-6 shadow border border-blue-100">
-      <p class="text-xl font-semibold mb-2">💨 Fast, Reliable Service</p>
-      <p>Same-day availability and on-time appointments.</p>
-    </div>
-    <div class="bg-white rounded-xl p-6 shadow border border-blue-100 md:col-span-2 lg:col-span-1">
-      <p class="text-xl font-semibold mb-2">🏆 5-Star Customer Experience</p>
-      <p>We treat your home like our own — clean, respectful, professional.</p>
-    </div>
 
 <!-- Enhanced Promo Banner with Acorn CTA -->
   <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container">
