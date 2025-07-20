@@ -79,22 +79,33 @@
     <a href="/" class="z-10">
       <img src="/assets/FrostAir_HorizontalDark.png" alt="Frost Air Logo" class="w-40 md:w-56 lg:w-64 h-auto" loading="lazy">
     </a>
+	  
+<!-- Overlapping Logo -->
+    <img src="/assets/FrostAir_HorizontalDark.png"
+         alt="Frost Air Heating & Cooling Logo"
+         class="absolute top-0 left-4 w-40 md:w-56 lg:w-64 h-auto z-50 drop-shadow-lg" loading="lazy">	
+	  
+<!-- NAVIGATION -->  
     <nav class="hidden md:flex space-x-6 text-base md:text-lg text-blue-900 font-medium">
       <a href="/index.html" class="hover:text-blue-500">Home</a>
       <a href="/services" class="hover:text-blue-500">Services</a>
       <a href="/contact" class="hover:text-blue-500">Contact</a>
       <a href="/about" class="text-blue-900 font-bold">About</a>
     </nav>
+	  
+	  
     <div class="hidden md:flex items-center space-x-3">
       <a href="tel:+14802562515" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">Call Now</a>
       <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" onClick="HCPWidget.openModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">Book Online</button>
     </div>
+	  
     <button onclick="toggleMenu()" class="md:hidden text-blue-800 z-10">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
         <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
+	
   <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-right text-blue-800 bg-white/90 shadow-md">
     <a href="/index.html" class="block py-2 hover:text-blue-500">Home</a>
     <a href="/services" class="block py-2 hover:text-blue-500">Services</a>
@@ -189,20 +200,29 @@
       <p>We treat your home like our own — clean, respectful, professional.</p>
     </div>
 
-<!-- PROMO BANNER -->
-<div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container">
-  <div id="promo-text" class="inline-block animate-marquee text-sm md:text-base whitespace-nowrap">
-    Financing Available · New AC Units from $5,516 · 
-    <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" target="_blank" rel="noopener noreferrer" class="underline hover:text-blue-200 font-semibold">Get pre-qualified instantly →</a> · No impact on credit · 
-    <a href="tel:+14802562515" class="underline hover:text-blue-200">Call us to confirm specials</a>
+<!-- Enhanced Promo Banner with Acorn CTA -->
+  <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container">
+    <div id="promo-text" class="inline-block animate-marquee text-sm md:text-base whitespace-nowrap">
+       Financing Available · New AC Units from $5,516 · 
+      <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" 
+         target="_blank" rel="noopener noreferrer" 
+         class="underline hover:text-blue-200 font-semibold">
+         Get pre-qualified instantly →
+      </a> · No impact on credit · 
+      <a href="tel:+14802562515" class="underline hover:text-blue-200">Call us to confirm specials</a>
+    </div>
   </div>
-</div>
-<p class="text-center text-blue-800 text-xs italic mt-2">*Prices subject to change. Call for the most up-to-date pricing.</p>
 
-<!-- FOOTER -->
-<footer class="text-center text-blue-900 py-6 bg-white/80 backdrop-blur-md text-sm">
-  © 2025 Frost Air | Stay Frosty | ROC #356420 | CCE Dealer | Licensed, bonded & insured
-</footer>
-<script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
+  <!-- Champion Dealer badge -->
+  <div class="flex justify-end mt-4">
+    <img src="/assets/logo_champion_color.png" alt="Champion Heating and Cooling Certified Dealer - Frost Air Arizona" class="w-40 md:w-48 lg:w-56 h-auto" loading="lazy">
+  </div>
+
+  <footer class="text-center text-blue-900 py-6 bg-white/80 backdrop-blur-md text-sm">
+    © 2025 Frost Air | Stay Frosty | ROC #356420 | CCE Dealer | Licensed, bonded & insured
+  </footer>
+
+  <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
+
 </body>
 </html>
