@@ -14,6 +14,11 @@
   <meta property="og:url" content="https://frostairaz.com/">
   <meta property="og:type" content="website">
 
+  <!-- Preload Logo for LCP -->
+  <link rel="preload" as="image" href="/assets/FrostAir_HorizontalDark.png"
+        imagesizes="(min-width:1024px) 360px, (min-width:768px) 300px, 40vw"
+        imagesrcset="/assets/FrostAir_HorizontalDark.png 1x, /assets/FrostAir_HorizontalDark@2x.png 2x">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYPPEMNZMQ"></script>
   <script>
@@ -39,10 +44,12 @@
     "address": {"@type": "PostalAddress","addressRegion": "AZ","addressCountry": "USA"}
   }</script>
 
-	<style>
-		:root { --logo-h: clamp(48px, 14vw, 112px); } /* min, fluid, max */
-	</style>
-	
+  <!-- Variables -->
+  <style>
+    :root { --logo-h: clamp(48px, 14vw, 112px); } /* min, fluid, max */
+  </style>
+
+  <!-- Styles -->
   <style>
     body{background:linear-gradient(to bottom,#e0f2fe,#f0f9ff);} 
     header{backdrop-filter:blur(10px);} 
@@ -51,38 +58,40 @@
     .frost-card:hover{transform:translateY(-5px);box-shadow:0 15px 25px rgba(147,197,253,0.5);} 
     @keyframes marquee{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}} 
     .animate-marquee{animation:marquee 20s linear infinite;}
+    @media (prefers-reduced-motion: reduce) {
+      .animate-marquee { animation: none !important; transform: none !important; }
+    }
   </style>
-	
 </head>
 <body class="bg-gradient-to-b from-blue-50 to-white text-blue-900 pb-16">
 
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200">
-    <div class="relative max-w-7xl mx-auto flex items-center justify-between px-4 pt-16 md:pt-20 lg:pt-24">
+    <div class="relative max-w-7xl mx-auto flex items-center justify-between px-4
+                pt-[calc(var(--logo-h)+0.75rem)] md:pt-[calc(var(--logo-h)+1rem)] lg:pt-[calc(var(--logo-h)+1.25rem)]">
     
-    		<!-- Overlapping Logo -->
-    		<a href="/index.html" class="absolute top-2 left-4 z-50 drop-shadow-lg block">
-      			<img
-       			src="/assets/FrostAir_HorizontalDark.png"
-        		alt="Frost Air Heating & Cooling Logo"
-        		class="h-[var(--logo-h)] w-auto max-w-full"
-        		width="768" height="192"  <!-- use your actual intrinsic size -->
-        			loading="eager" decoding="async"
-        			srcset="/assets/FrostAir_HorizontalDark.png 1x, /assets/FrostAir_HorizontalDark@2x.png 2x"
-        			sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 40vw"
-    			 	 />
-   		 	</a>
+      <!-- Overlapping Logo -->
+      <a href="/index.html" class="absolute top-2 left-4 z-50 drop-shadow-lg block">
+        <img
+          src="/assets/FrostAir_HorizontalDark.png"
+          alt="Frost Air Heating & Cooling Logo"
+          class="h-[var(--logo-h)] w-auto max-w-full"
+          width="768" height="192"
+          loading="eager" decoding="async"
+          srcset="/assets/FrostAir_HorizontalDark.png 1x, /assets/FrostAir_HorizontalDark@2x.png 2x"
+          sizes="(min-width:1024px) 360px, (min-width:768px) 300px, 40vw"
+        />
+      </a>
 
-	     
-		<!-- Navigation -->
-    	<nav aria-label="Main Navigation" class="flex-1 text-right space-x-4 md:space-x-6 text-base md:text-lg">
-       		<a href="/index.html" class="hover:text-blue-500">Home</a>
-       		<a href="/services" class="hover:text-blue-500">Services</a>
-      		<a href="/contact" class="hover:text-blue-500">Contact</a>
-        	<a href="/about" class="text-blue-900 font-bold">FAQs</a>
-      	</nav>
-      	
-		<!-- CTA buttons -->
+      <!-- Navigation -->
+      <nav aria-label="Main Navigation" class="flex-1 text-right space-x-4 md:space-x-6 text-base md:text-lg">
+        <a href="/index.html" class="hover:text-blue-500">Home</a>
+        <a href="/services" class="hover:text-blue-500">Services</a>
+        <a href="/contact" class="hover:text-blue-500">Contact</a>
+        <a href="/about" class="text-blue-900 font-bold">FAQs</a>
+      </nav>
+
+      <!-- CTA buttons -->
       <div class="hidden md:flex space-x-3 ml-4">
         <a href="tel:+14802562515" class="bg-green-600 text-white px-5 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium tracking-wide">Call Now</a>
         <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" onClick="HCPWidget.openModal()" class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium tracking-wide">Book Online</button>
@@ -91,11 +100,9 @@
   </header>
 
   <!-- Main Content -->
-	
-	<!-- faqs -->
-<div id="faq-root" class="max-w-5xl mx-auto px-4"></div>
 
-
+  <!-- faqs -->
+  <div id="faq-root" class="max-w-5xl mx-auto px-4"></div>
 
   <!-- Contact Us -->
   <section id="contact" class="py-16 text-center bg-blue-50">
@@ -128,75 +135,75 @@
 
   <!-- Housecall Pro Booking Script -->
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
-	
-	<!-- React + Babel (CDN) -->
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<!-- FAQAccordion component (JSX via Babel) -->
-<script type="text/babel">
-  function FAQItem({ q, a, defaultOpen = false }) {
-    const [open, setOpen] = React.useState(defaultOpen);
-    return (
-      <div className="p-4 md:p-5">
-        <button
-          onClick={() => setOpen(!open)}
-          className="flex w-full items-center justify-between gap-3 text-left"
-          aria-expanded={open}
-        >
-          <span className="text-base md:text-lg font-medium text-gray-900">{q}</span>
-          <span className="text-gray-500 text-xl leading-none select-none">{open ? "−" : "+"}</span>
-        </button>
-        <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"}`}>
-          <div className="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-            {a}
+  <!-- React + Babel (CDN) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- FAQAccordion component (JSX via Babel) -->
+  <script type="text/babel">
+    function FAQItem({ q, a, defaultOpen = false }) {
+      const [open, setOpen] = React.useState(defaultOpen);
+      return (
+        <div className="p-4 md:p-5">
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex w-full items-center justify-between gap-3 text-left"
+            aria-expanded={open}
+          >
+            <span className="text-base md:text-lg font-medium text-gray-900">{q}</span>
+            <span className="text-gray-500 text-xl leading-none select-none">{open ? "−" : "+"}</span>
+          </button>
+          <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"}`}>
+            <div className="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              {a}
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 
-  function FAQAccordion({ calculatorHref = "#ac-calculator", financingHref = "https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" }) {
-    const faqs = [
-      { q: "What does HVAC stand for?", a: "HVAC stands for Heating, Ventilation, and Air Conditioning." },
-      { q: "What is the average life expectancy of an HVAC system?", a: "Most systems last 10–15 years, depending on maintenance and usage." },
-      { q: "How often should I change my air filters?", a: "Every 1–3 months for disposable filters; washable filters should be cleaned monthly." },
-      { q: "What is ENERGY STAR?", a: "ENERGY STAR is a government-backed program certifying products for energy efficiency." },
-      { q: "What is SEER?", a: "Seasonal Energy Efficiency Ratio—measures cooling efficiency; higher numbers mean more efficient units." },
-      { q: "What is a MERV rating?", a: "Minimum Efficiency Reporting Value—rates how well a filter captures particles; higher ratings mean better filtration." },
-      { q: "How can I tell if my heating system is working properly and efficiently?", a: "Look for even temperatures, normal energy bills, steady run times, and no unusual noises or smells. Annual tune-ups help verify efficiency." },
-      { q: "What should I consider when purchasing an air conditioner?", a: "Proper size (Manual J), efficiency (SEER/SEER2), warranty, installation quality, noise, and budget/rebates/financing." },
-      { q: "Should I replace or repair my HVAC system?", a: "If repairs exceed ~50% of the cost of a new system or the system is 10–15+ years old, replacement often makes more sense." },
-      { q: "What goes into having an HVAC system installed?", a: "Load calculation, equipment selection, permits, ductwork/electrical as needed, installation, refrigerant charging, testing/commissioning." },
-      { q: "How can I increase my HVAC system’s efficiency?", a: "Change filters, seal/insulate ducts, schedule maintenance, use a programmable/smart thermostat, shade windows, and set reasonable temps." },
-      { q: "At what temperature should I set my thermostat?", a: "Common guidance: 78°F in summer and 68°F in winter for a comfort/efficiency balance (adjust to taste)." },
-      { q: "How do I know what size AC I need?", a: <>Use our <a className="text-sky-700 underline" href={calculatorHref}>HVAC Load Calculator</a> for a ballpark. We confirm with a professional Manual J during your quote.</> },
-    ];
+    function FAQAccordion({ calculatorHref = "#ac-calculator", financingHref = "https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" }) {
+      const faqs = [
+        { q: "What does HVAC stand for?", a: "HVAC stands for Heating, Ventilation, and Air Conditioning." },
+        { q: "What is the average life expectancy of an HVAC system?", a: "Most systems last 10–15 years, depending on maintenance and usage." },
+        { q: "How often should I change my air filters?", a: "Every 1–3 months for disposable filters; washable filters should be cleaned monthly." },
+        { q: "What is ENERGY STAR?", a: "ENERGY STAR is a government-backed program certifying products for energy efficiency." },
+        { q: "What is SEER?", a: "Seasonal Energy Efficiency Ratio—measures cooling efficiency; higher numbers mean more efficient units." },
+        { q: "What is a MERV rating?", a: "Minimum Efficiency Reporting Value—rates how well a filter captures particles; higher ratings mean better filtration." },
+        { q: "How can I tell if my heating system is working properly and efficiently?", a: "Look for even temperatures, normal energy bills, steady run times, and no unusual noises or smells. Annual tune-ups help verify efficiency." },
+        { q: "What should I consider when purchasing an air conditioner?", a: "Proper size (Manual J), efficiency (SEER/SEER2), warranty, installation quality, noise, and budget/rebates/financing." },
+        { q: "Should I replace or repair my HVAC system?", a: "If repairs exceed ~50% of the cost of a new system or the system is 10–15+ years old, replacement often makes more sense." },
+        { q: "What goes into having an HVAC system installed?", a: "Load calculation, equipment selection, permits, ductwork/electrical as needed, installation, refrigerant charging, testing/commissioning." },
+        { q: "How can I increase my HVAC system’s efficiency?", a: "Change filters, seal/insulate ducts, schedule maintenance, use a programmable/smart thermostat, shade windows, and set reasonable temps." },
+        { q: "At what temperature should I set my thermostat?", a: "Common guidance: 78°F in summer and 68°F in winter for a comfort/efficiency balance (adjust to taste)." },
+        { q: "How do I know what size AC I need?", a: <>Use our <a className="text-sky-700 underline" href={calculatorHref}>HVAC Load Calculator</a> for a ballpark. We confirm with a professional Manual J during your quote.</> },
+      ];
 
-    return (
-      <section id="faqs" className="py-16 bg-white">
-        <div className="mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-800">HVAC FAQs</h2>
-          <p className="text-blue-700 mt-1">Quick answers to the most common questions.</p>
-        </div>
+      return (
+        <section id="faqs" className="py-16 bg-white">
+          <div className="mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-800">HVAC FAQs</h2>
+            <p className="text-blue-700 mt-1">Quick answers to the most common questions.</p>
+          </div>
 
-        <div className="divide-y divide-gray-200 rounded-2xl bg-white ring-1 ring-gray-200">
-          {faqs.map((item, i) => (
-            <FAQItem key={i} q={item.q} a={item.a} defaultOpen={i === 0} />
-          ))}
-        </div>
+          <div className="divide-y divide-gray-200 rounded-2xl bg-white ring-1 ring-gray-200">
+            {faqs.map((item, i) => (
+              <FAQItem key={i} q={item.q} a={item.a} defaultOpen={i === 0} />
+            ))}
+          </div>
 
-        <p className="mt-4 text-xs text-gray-600">
-          Need help deciding? <a className="underline text-sky-700" href={financingHref} target="_blank" rel="noopener">Check financing options</a> or call us.
-        </p>
-      </section>
-    );
-  }
+          <p className="mt-4 text-xs text-gray-600">
+            Need help deciding? <a className="underline text-sky-700" href={financingHref} target="_blank" rel="noopener">Check financing options</a> or call us.
+          </p>
+        </section>
+      );
+    }
 
-  const root = ReactDOM.createRoot(document.getElementById("faq-root"));
-  root.render(<FAQAccordion />);
-</script>
+    const root = ReactDOM.createRoot(document.getElementById("faq-root"));
+    root.render(<FAQAccordion />);
+  </script>
 
 </body>
 </html>
