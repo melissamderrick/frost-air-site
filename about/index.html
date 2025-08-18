@@ -349,9 +349,23 @@
   </footer>
 
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
-  <script>
-    lucide.createIcons();
-  </script>
+ 
+ <script src="https://unpkg.com/lucide@latest" defer></script>
+<script>
+  // Vanilla JS FAQ toggle script
+  document.querySelectorAll('.faq-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', !expanded);
+      const panel = document.getElementById(button.getAttribute('aria-controls'));
+      panel.style.gridTemplateRows = expanded ? '0fr' : '1fr';
+      panel.style.opacity = expanded ? '0' : '1';
+      panel.style.marginTop = expanded ? '0' : '0.75rem';
+      button.querySelector('.faq-icon').textContent = expanded ? '+' : '−';
+    });
+  });
+</script>
+
 
 </body>
 </html>
