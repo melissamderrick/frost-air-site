@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frost Air | Heat Load Calculator (Ballpark)</title>
+  <meta name="description" content="Quick, homeowner-friendly cooling & heating load estimate for Arizona homes. Not a substitute for Manual J." />
+  <link rel="canonical" href="https://frostairaz.com/tools/load-calculator" />
+
+  <!-- Styles & libs -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Page-specific tweaks (optional; can move to /css/styles.css) */
+    .result-kpi{font-variant-numeric: tabular-nums;}
+    .range-output{min-width:3ch;display:inline-block;text-align:right}
+  </style>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900">
+  <!-- Header (matches site) -->
+  <header class="site-header sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200">
+    <div class="relative max-w-7xl mx-auto flex items-center justify-between px-4 pt-6 pb-4">
+      <div class="flex items-center gap-3">
+        <img src="/assets/FrostAir_HorizontalDark.png" alt="Frost Air" class="w-40 h-auto drop-shadow-lg" />
+        <span class="hidden sm:inline text-sm text-blue-700">Heat Load Calculator (ballpark)</span>
+      </div>
+      <nav class="flex-1 text-right space-x-4 md:space-x-6 text-sm md:text-base">
+        <a href="/index.html" class="hover:text-blue-500">Home</a>
+        <a href="/services" class="hover:text-blue-500">Services</a>
+        <a href="/contact" class="hover:text-blue-500">Contact</a>
+        <a href="/faqs" class="hover:text-blue-500">FAQs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-10 grid lg:grid-cols-3 gap-8">
+    <!-- Input card -->
+    <section class="lg:col-span-2 frost-card p-6">
+      <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Heat Load Calculator</h1>
+      <p class="text-sm text-blue-700 mb-6">Ballpark sizing for Arizona homes. For installs we always confirm with a professional <strong>Manual J</strong>.</p>
+
+      <form id="calc-form" class="grid md:grid-cols-2 gap-6">
+        <!-- Home basics -->
+        <div>
+          <h2 class="text-lg font-semibold text-blue-800 mb-3">Home Basics</h2>
+          <label class="block text-sm mb-1" for="area">Conditioned floor area (sq ft)</label>
+          <input id="area" type="number" min="200" step="10" value="2000" class="w-full rounded-lg border p-2" required />
+
+          <label class="block text-sm mt-4 mb-1" for="height">Average ceiling height (ft)</label>
+          <input id="height" type="number" min="7" max="12" step="0.5" value="8" class="w-full rounded-lg border p-2" />
+
+          <label class="block text-sm mt-4 mb-1" for="insulation">Insulation / envelope</label>
+          <select id="insulation" class="w-full rounded-lg border p-2">
+            <option value="poor">Poor / older</option>
+            <option value="average" selected>Average</option>
+            <option value="good">Good</option>
+            <option value="spray">Spray foam / high-performance</option>
+          </select>
+
+          <label class="block text-sm mt-4 mb-1" for="infiltration">Air tightness</label>
+          <select id="infiltration" class="w-full rounded-lg border p-2">
+            <option value="leaky">Leaky</option>
+            <option value="average" selected>Average</option>
+            <option value="tight">Tight</option>
+          </select>
+        </div>
+
+        <!-- Solar & internal gain -->
+        <div>
+          <h2 class="text-lg font-semibold text-blue-800 mb-3">Windows & Gains</h2>
+          <label class="block text-sm mb-1" for="wfr">Window area % of floor</label>
+          <input id="wfr" type="range" min="5" max="30" step="5" value="15" class="w-full" />
+          <div class="text-xs text-blue-700 mt-1">Currently: <span id="wfrOut" class="range-output">15</span>%</div>
+
+          <label class="block text-sm mt-4 mb-1" for="orientation">Dominant window orientation</label>
+          <select id="orientation" class="w-full rounded-lg border p-2">
+            <option value="north">North</option>
+            <option value="east">East</option>
+            <option value="south">South</option>
+            <option value="west" selected>West</option>
+          </select>
+
+          <label class="block text-sm mt-4 mb-1" for="shading">Exterior shading</label>
+          <select id="shading" class="w-full rounded-lg border p-2">
+            <option value="none" selected>Minimal</option>
+            <option value="some">Some (awnings/trees)</option>
+            <option value="good">Good (deep overhangs/screens)</option>
+          </select>
+
+          <label class="block text-sm mt-4 mb-1" for="ducts">Ducts in unconditioned attic?</label>
+          <select id="ducts" class="w-full rounded-lg border p-2">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No / sealed & conditioned</option>
+          </select>
+
+          <label class="block text-sm mt-4 mb-1" for="occupants">Occupants</label>
+          <input id="occupants" type="number" min="1" step="1" value="4" class="w-full rounded-lg border p-2" />
+
+          <label class="block text-sm mt-4 mb-1" for="cooking">Cooking & internal gains</label>
+          <select id="cooking" class="w-full rounded-lg border p-2">
+            <option value="normal" selected>Normal</option>
+            <option value="heavy">Heavy cooking / equipment</option>
+          </select>
+        </div>
+
+        <!-- Climate selector (optional nuance) -->
+        <div class="md:col-span-2">
+          <h2 class="text-lg font-semibold text-blue-800 mb-3">Location</h2>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm mb-1" for="city">AZ climate</label>
+              <select id="city" class="w-full rounded-lg border p-2">
+                <option value="phoenix" selected>Phoenix Metro</option>
+                <option value="tucson">Tucson</option>
+                <option value="yuma">Yuma</option>
+                <option value="prescott">Prescott</option>
+                <option value="flagstaff">Flagstaff</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="designTemp">Design outdoor (°F)</label>
+              <input id="designTemp" type="number" step="1" value="108" class="w-full rounded-lg border p-2" />
+              <p class="text-xs text-blue-700 mt-1">Defaults are typical summer design temps; adjust if you know yours.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="mt-6 flex items-center gap-3">
+        <button id="resetBtn" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Reset</button>
+        <button id="shareBtn" class="px-4 py-2 rounded-lg bg-white ring-1 ring-blue-200 hover:bg-blue-50">Copy shareable link</button>
+      </div>
+    </section>
+
+    <!-- Results card -->
+    <aside class="frost-card p-6 lg:sticky lg:top-24 h-fit">
+      <h2 class="text-xl font-semibold text-blue-800 mb-4">Estimate</h2>
+      <div class="grid gap-4">
+        <div>
+          <div class="text-sm text-blue-700">Cooling Load (BTU/hr)</div>
+          <div id="coolBtu" class="result-kpi text-3xl font-extrabold">—</div>
+        </div>
+        <div>
+          <div class="text-sm text-blue-700">Suggested Size (tons)</div>
+          <div id="tons" class="result-kpi text-2xl font-bold">—</div>
+          <div id="tonHint" class="text-xs text-blue-700 mt-1">Rounded to nearest 0.5 ton</div>
+        </div>
+        <div class="border-t pt-4">
+          <div class="text-sm text-blue-700">Heating Load (BTU/hr)</div>
+          <div id="heatBtu" class="result-kpi text-xl font-bold">—</div>
+        </div>
+      </div>
+
+      <div class="mt-6 text-xs text-gray-600 leading-relaxed">
+        <p><strong>Heads‑up:</strong> This tool provides a quick sizing estimate for planning only. Final equipment selection should be based on a professional <em>Manual J</em>, duct evaluation, and manufacturer performance data.</p>
+      </div>
+
+      <div class="mt-6">
+        <a href="/contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">
+          <i data-lucide="calendar"></i><span>Book a Manual J / Quote</span>
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-blue-900 py-8 bg-white/80 backdrop-blur-md text-sm">
+    © 2025 Frost Air | Stay Frosty | ROC #356420 | CCE Dealer | Licensed, bonded & insured
+  </footer>
+
+  <!-- Inline script for preview; you can move this into /js/heatload.js in production -->
+  <script>
+  (function(){
+    const $ = (id) => document.getElementById(id);
+    const inputs = ['area','height','insulation','infiltration','wfr','orientation','shading','ducts','occupants','cooking','city','designTemp'];
+
+    const defaultsByCity = {
+      phoenix: 108, tucson: 105, yuma: 110, prescott: 96, flagstaff: 90
+    };
+
+    const fmt = new Intl.NumberFormat('en-US');
+
+    function baseCoolingPerSqFt(city){
+      // Hotter cities use a slightly higher baseline (BTU/hr per sq ft at 8 ft ceilings)
+      switch(city){
+        case 'yuma': return 20;
+        case 'phoenix': return 18;
+        case 'tucson': return 17;
+        case 'prescott': return 16;
+        case 'flagstaff': return 15;
+        default: return 18;
+      }
+    }
+
+    function insulationFactor(level){
+      return ({ poor: 1.15, average: 1.0, good: 0.90, spray: 0.85 })[level] || 1.0;
+    }
+
+    function infiltrationFactor(level){
+      return ({ leaky: 1.10, average: 1.0, tight: 0.95 })[level] || 1.0;
+    }
+
+    function windowFactor(percent){
+      // window-to-floor ratio adjustments (simplified)
+      if (percent <= 5) return 0.95;
+      if (percent <= 10) return 1.00;
+      if (percent <= 15) return 1.05;
+      if (percent <= 20) return 1.10;
+      if (percent <= 25) return 1.15;
+      return 1.20; // 30%
+    }
+
+    function orientationFactor(ori){
+      return ({ north: 1.00, east: 1.05, south: 1.05, west: 1.08 })[ori] || 1.00;
+    }
+
+    function shadingFactor(s){
+      return ({ none: 1.00, some: 0.97, good: 0.95 })[s] || 1.00;
+    }
+
+    function ductsFactor(d){
+      return d === 'yes' ? 1.10 : 1.00; // penalty for attic ducts
+    }
+
+    function designTempFactor(city, user){
+      const nominal = defaultsByCity[city] ?? 108;
+      const delta = (user||nominal) - nominal; // +BTU per degree above nominal
+      // Scale: about 1% per °F deviation from nominal in cooling season
+      return Math.max(0.9, 1 + delta * 0.01);
+    }
+
+    function calc(){
+      const area = Number($('area').value || 0);
+      const height = Number($('height').value || 8);
+      const city = $('city').value;
+      const design = Number($('designTemp').value || defaultsByCity[city]);
+
+      const perSq = baseCoolingPerSqFt(city);
+      const heightFactor = Math.max(0.8, height / 8); // scale roughly with ceiling height
+
+      const factors = [
+        insulationFactor($('insulation').value),
+        infiltrationFactor($('infiltration').value),
+        windowFactor(Number($('wfr').value)),
+        orientationFactor($('orientation').value),
+        shadingFactor($('shading').value),
+        ductsFactor($('ducts').value),
+        designTempFactor(city, design)
+      ];
+
+      // Sensible cooling estimate
+      let cooling = area * perSq * heightFactor;
+      factors.forEach(f => cooling *= f);
+
+      // Internal gains: occupants beyond 2 add ~600 BTU/hr each
+      const occ = Math.max(0, Number($('occupants').value) - 2);
+      cooling += occ * 600;
+
+      // Cooking / equipment bump
+      if ($('cooking').value === 'heavy') cooling += 1200;
+
+      // Round nicely
+      const coolingRounded = Math.round(cooling / 100) * 100;
+
+      // Tonnage (suggest in 0.5-ton increments)
+      const tons = cooling / 12000;
+      const tonsHalf = Math.round(tons * 2) / 2;
+
+      // Simple heating estimate for AZ (very rough):
+      // base 12 BTU/ft² at 8' with modifiers (cooler cities scale up slightly)
+      let heatPerSq = ({ phoenix:12, tucson:13, yuma:11, prescott:15, flagstaff:18 })[city] || 12;
+      let heating = area * heatPerSq * heightFactor;
+      // Envelope/infiltration affect both seasons
+      heating *= insulationFactor($('insulation').value) * infiltrationFactor($('infiltration').value);
+      const heatingRounded = Math.round(heating / 100) * 100;
+
+      $('coolBtu').textContent = fmt.format(coolingRounded);
+      $('tons').textContent = tonsHalf.toFixed(1) + ' ton' + (tonsHalf !== 1 ? 's' : '');
+      $('heatBtu').textContent = fmt.format(heatingRounded);
+      $('wfrOut').textContent = $('wfr').value;
+    }
+
+    function reset(){
+      $('area').value = 2000;
+      $('height').value = 8;
+      $('insulation').value = 'average';
+      $('infiltration').value = 'average';
+      $('wfr').value = 15;
+      $('orientation').value = 'west';
+      $('shading').value = 'none';
+      $('ducts').value = 'yes';
+      $('occupants').value = 4;
+      $('cooking').value = 'normal';
+      $('city').value = 'phoenix';
+      $('designTemp').value = defaultsByCity['phoenix'];
+      calc();
+    }
+
+    function share(){
+      const params = new URLSearchParams();
+      inputs.forEach(id => params.set(id, document.getElementById(id).value));
+      const url = `${location.origin}${location.pathname}?${params.toString()}`;
+      navigator.clipboard.writeText(url).then(()=>{
+        alert('Link copied! Paste this to share your inputs.');
+      }).catch(()=>{
+        prompt('Copy this link:', url);
+      });
+    }
+
+    // Wire events
+    inputs.forEach(id => {
+      const el = $(id);
+      el.addEventListener('input', calc);
+      el.addEventListener('change', calc);
+    });
+    $('resetBtn').addEventListener('click', (e)=>{ e.preventDefault(); reset(); });
+    $('shareBtn').addEventListener('click', (e)=>{ e.preventDefault(); share(); });
+
+    // Load from query string if present
+    const qs = new URLSearchParams(location.search);
+    if ([...qs.keys()].length){
+      inputs.forEach(id => { if (qs.has(id)) $(id).value = qs.get(id); });
+    } else {
+      // set default design temp by city
+      $('designTemp').value = defaultsByCity[$('city').value];
+    }
+
+    // update design temp when city changes (unless user has manually edited)
+    $('city').addEventListener('change', ()=>{
+      const userEdited = $('designTemp').dataset.edited === '1';
+      if (!userEdited){ $('designTemp').value = defaultsByCity[$('city').value] || 108; }
+      calc();
+    });
+    $('designTemp').addEventListener('input', ()=>{ $('designTemp').dataset.edited = '1'; });
+
+    calc();
+  })();
+  </script>
+
+  <!-- Site scripts -->
+  <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

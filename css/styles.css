@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* Frost Air global styles */
+:root {
+  --frost-blue-100: #e0f2fe;
+  --frost-blue-200: #f0f9ff;
+  --frost-text: #0f172a;
+  --frost-primary: #2563eb; /* main Frost Air blue */
+  --frost-accent: #16a34a;  /* green (call button, etc.) */
+  --radius-xl: 1rem;
+  --shadow-blue: 0 10px 15px rgba(147, 197, 253, 0.3);
+  --shadow-blue-lg: 0 15px 25px rgba(147, 197, 253, 0.5);
+}
+
+/* Background + base text */
+body {
+  background: linear-gradient(to bottom, var(--frost-blue-100), var(--frost-blue-200));
+  color: var(--frost-text);
+}
+
+/* Sticky glass header */
+.site-header {
+  backdrop-filter: blur(10px);
+}
+
+/* Font tweaks */
+h2, h3 {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Frost card */
+.frost-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-blue);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.frost-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-blue-lg);
+}
+
+/* Promo banner marquee */
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+html { scroll-behavior: smooth; }
+/* Mobile nav slide animation */
+#mobileNav.mobileNav {
+  display: grid;                 /* enables height animation */
+  grid-template-rows: 0fr;       /* collapsed */
+  opacity: 0;
+  transition: grid-template-rows .25s ease, opacity .25s ease;
+}
+#mobileNav.mobileNav.open {
+  grid-template-rows: 1fr;       /* expanded */
+  opacity: 1;
+}
+.mobileNav-inner {
+  overflow: hidden;              /* hides contents while height animates */
+}
+
