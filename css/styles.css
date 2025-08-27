@@ -20,12 +20,13 @@ body {
 
 /* Sticky glass header */
 .site-header {
+  -webkit-backdrop-filter: blur(10px); /* Safari */
   backdrop-filter: blur(10px);
 }
 
 /* Font tweaks */
 h2, h3 {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Frost card */
@@ -52,7 +53,14 @@ h2, h3 {
   animation-play-state: paused;
 }
 
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
 html { scroll-behavior: smooth; }
+
 /* Mobile nav slide animation */
 #mobileNav.mobileNav {
   display: grid;                 /* enables height animation */
@@ -67,4 +75,4 @@ html { scroll-behavior: smooth; }
 .mobileNav-inner {
   overflow: hidden;              /* hides contents while height animates */
 }
-
+/* End */
