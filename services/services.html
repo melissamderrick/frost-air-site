@@ -3,217 +3,433 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frost Air | HVAC Services Across Arizona</title>
 
-  <meta name="description" content="Frost Air offers reliable HVAC repair, installation, and maintenance services across Arizona with transparent pricing and professional service.">
-  <meta name="keywords" content="HVAC, AC Repair, Heating, Cooling, Installation, Maintenance, Arizona, Frost Air">
-  <meta name="author" content="Frost Air">
-  <meta name="robots" content="index, follow">
+  <!-- Page-specific SEO -->
+  <title>Frost Air | HVAC Services in the Phoenix Metro</title>
+  <meta name="description" content="Full-service HVAC: AC repair, installation, tune-ups, mini-splits, heat pumps, thermostats, ductwork, air quality, and more. Honest pricing. Financing available." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://your-domain.com/services/services.html" />
 
-  <!-- Canonical for SEO -->
-  <link rel="canonical" href="https://frostairaz.com/services" />
-
-  <!-- Open Graph (kept relative for now) -->
-  <meta property="og:title" content="Frost Air | HVAC Services Across Arizona" />
-  <meta property="og:description" content="Reliable HVAC repair, installation, and maintenance services across Arizona with transparent pricing." />
-  <meta property="og:image" content="../assets/FrostAir_YetiFull.png" />
-  <meta property="og:url" content="./services.html" />
+  <!-- Social sharing (Open Graph / Twitter) -->
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="Frost Air | HVAC Services in the Phoenix Metro" />
+  <meta property="og:description" content="AC repair and install, tune-ups, mini-splits, heat pumps, and more. Financing available." />
+  <meta property="og:url" content="https://your-domain.com/services/services.html" />
+  <meta property="og:image" content="https://your-domain.com/assets/og-frostair-hero.jpg" />
+  <meta property="og:site_name" content="Frost Air" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Frost Air | HVAC Services in the Phoenix Metro" />
+  <meta name="twitter:description" content="Full-service HVAC with honest pricing and local expertise." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/og-frostair-hero.jpg" />
+  <meta name="theme-color" content="#1e3a8a" />
 
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-
-  <!-- GA -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-487458746"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-487458746');
-  </script>
-
-  <!-- Styles & libs -->
+  <!-- Styles / Icons -->
   <link rel="stylesheet" href="../css/styles.css" />
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Schema (use absolute URLs once the custom domain is live) -->
+  <!-- JSON-LD: Local Business (keep consistent across pages) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"HVACBusiness",
+    "@id":"https://your-domain.com/#org",
     "name":"Frost Air",
-    "url":"../index.html",
-    "logo":"../assets/FrostAir_HorizontalDark.png",
-    "image":"../assets/FrostAir_YetiFull.png",
-    "description":"Reliable HVAC repair, installation, and maintenance services across Arizona.",
-    "telephone":"+14802562515",
-    "address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"USA"}
+    "url":"https://your-domain.com/",
+    "logo":"https://your-domain.com/assets/FrostAir_HorizontalDark.png",
+    "image":"https://your-domain.com/assets/og-frostair-hero.jpg",
+    "telephone":"+1-480-256-2515",
+    "priceRange":"$$",
+    "address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"US"}
+  }
+  </script>
+
+  <!-- JSON-LD: Services as an ItemList (each entry maps to the cards below) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Frost Air HVAC Services",
+    "itemListElement":[
+      {
+        "@type":"ListItem","position":1,
+        "item":{
+          "@type":"Service",
+          "name":"AC Repair",
+          "url":"https://your-domain.com/services/services.html#ac-repair",
+          "areaServed":{"@type":"City","name":"Phoenix"},
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","availability":"https://schema.org/InStock","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":2,
+        "item":{
+          "@type":"Service",
+          "name":"General AC Tune-Up",
+          "url":"https://your-domain.com/services/services.html#ac-tune-up",
+          "description":"Routine maintenance: clean coils, check refrigerant, inspect electrical components.",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":3,
+        "item":{
+          "@type":"Service",
+          "name":"HVAC Installation / Replacement",
+          "url":"https://your-domain.com/services/services.html#installation",
+          "description":"Professional install with permits, commissioning, and warranty registration.",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","price":"5516","priceCurrency":"USD","category":"installation"}
+        }
+      },
+      {
+        "@type":"ListItem","position":4,
+        "item":{
+          "@type":"Service",
+          "name":"Heater/Furnace Repair",
+          "url":"https://your-domain.com/services/services.html#heater-repair",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":5,
+        "item":{
+          "@type":"Service",
+          "name":"Heating Tune-Up",
+          "url":"https://your-domain.com/services/services.html#heating-tune-up",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":6,
+        "item":{
+          "@type":"Service",
+          "name":"Heater Install / Replace",
+          "url":"https://your-domain.com/services/services.html#heater-install",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD","category":"installation"}
+        }
+      },
+      {
+        "@type":"ListItem","position":7,
+        "item":{
+          "@type":"Service",
+          "name":"Mini-Split Service",
+          "url":"https://your-domain.com/services/services.html#mini-split",
+          "description":"Repair or install ductless mini-split systems.",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","price":"1600","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","unitText":"starting"}}
+        }
+      },
+      {
+        "@type":"ListItem","position":8,
+        "item":{
+          "@type":"Service",
+          "name":"Heat Pump Service",
+          "url":"https://your-domain.com/services/services.html#heat-pump",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":9,
+        "item":{
+          "@type":"Service",
+          "name":"Thermostat Install / Troubleshooting",
+          "url":"https://your-domain.com/services/services.html#thermostat",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":10,
+        "item":{
+          "@type":"Service",
+          "name":"Ductwork Repair",
+          "url":"https://your-domain.com/services/services.html#ductwork",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":11,
+        "item":{
+          "@type":"Service",
+          "name":"Indoor Air Quality",
+          "url":"https://your-domain.com/services/services.html#air-quality",
+          "description":"Filters, UV lights, and purifiers to improve indoor air.",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      },
+      {
+        "@type":"ListItem","position":12,
+        "item":{
+          "@type":"Service",
+          "name":"Leak Detection & Repair",
+          "url":"https://your-domain.com/services/services.html#leak-repair",
+          "description":"Infrared and acoustic tools to find hidden leaks; efficient repairs.",
+          "provider":{"@id":"https://your-domain.com/#org"},
+          "offers":{"@type":"Offer","priceCurrency":"USD"}
+        }
+      }
+    ]
   }
   </script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900">
+<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900" data-page="services">
   <!-- Header -->
   <header class="site-header sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200">
     <div class="max-w-7xl mx-auto px-4">
       <div class="h-16 sm:h-18 md:h-24 flex items-center justify-between">
         <!-- Logo -->
-        <a href="../index.html" class="inline-flex items-center gap-2">
-          <img
-            src="../assets/FrostAir_HorizontalDark.png"
-            alt="Frost Air Heating & Cooling Logo"
-            class="w-28 sm:w-36 md:w-48 lg:w-56 h-auto drop-shadow-lg"
-            loading="lazy"
-          />
+        <a href="../index.html" class="inline-flex items-center gap-2" aria-label="Frost Air home">
+          <img src="../assets/FrostAir_HorizontalDark.png" alt="Frost Air Heating & Cooling Logo"
+               class="w-28 sm:w-36 md:w-48 lg:w-56 h-auto drop-shadow-lg" loading="eager" fetchpriority="high" />
         </a>
 
-        <!-- Desktop nav (RELATIVE from /services/) -->
+        <!-- Desktop nav -->
         <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6 text-base lg:text-lg">
-          <a href="../index.html" class="hover:text-blue-500">Home</a>
-          <a href="./services.html" class="hover:text-blue-500 font-semibold">Services</a>
-          <a href="../contact/contact.html" class="hover:text-blue-500">Contact</a>
-          <a href="../faqs/faqs.html" class="hover:text-blue-500">FAQs</a>
-          <a href="../tools/load-calculator.html" class="hover:text-blue-500">Load Calculator</a>
+          <a href="../index.html" class="hover:text-blue-500" data-nav="home">Home</a>
+          <a href="./services.html" class="hover:text-blue-500" data-nav="services">Services</a>
+          <a href="../contact/contact.html" class="hover:text-blue-500" data-nav="contact">Contact</a>
+          <a href="../faqs/faqs.html" class="hover:text-blue-500" data-nav="faqs">FAQs</a>
+          <a href="../tools/load-calculator.html" class="hover:text-blue-500" data-nav="load-calculator">Load Calculator</a>
         </nav>
 
         <!-- Desktop CTAs -->
         <div class="hidden md:flex items-center gap-3">
-          <a href="tel:+14802562515"
-             class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">
-            Call Now
-          </a>
-          <button
-            data-token="2fc32083d0d34a2d8eb08ce327d13565"
-            data-orgname="Frost-Air"
-            class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">
-            Book Online
-          </button>
+          <a href="tel:+14802562515" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">Call Now</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air"
+                  class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">Book Online</button>
         </div>
 
         <!-- Mobile menu button -->
-        <button
-          id="navToggle"
-          class="md:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-blue-200"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobileNav">
-          <i data-lucide="menu"></i>
+        <button id="navToggle" class="md:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-blue-200"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i data-lucide="menu" aria-hidden="true"></i>
         </button>
       </div>
 
-      <!-- Mobile drawer (RELATIVE from /services/) -->
+      <!-- Mobile nav -->
       <div id="mobileNav" class="md:hidden mobileNav hidden border-t border-blue-100 pb-3">
         <div class="mobileNav-inner">
           <nav class="flex flex-col gap-2 pt-3 text-base" aria-label="Mobile Navigation">
-            <a href="../index.html" class="px-2 py-2 rounded hover:bg-blue-50">Home</a>
-            <a href="./services.html" class="px-2 py-2 rounded hover:bg-blue-50">Services</a>
-            <a href="../contact/contact.html" class="px-2 py-2 rounded hover:bg-blue-50">Contact</a>
-            <a href="../faqs/faqs.html" class="px-2 py-2 rounded hover:bg-blue-50">FAQs</a>
-            <a href="../tools/load-calculator.html" class="px-2 py-2 rounded hover:bg-blue-50">Load Calculator</a>
+            <a href="../index.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="home">Home</a>
+            <a href="./services.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="services">Services</a>
+            <a href="../contact/contact.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="contact">Contact</a>
+            <a href="../faqs/faqs.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="faqs">FAQs</a>
+            <a href="../tools/load-calculator.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="load-calculator">Load Calculator</a>
           </nav>
 
           <div class="mt-3 flex gap-2">
-            <a href="tel:+14802562515"
-               class="flex-1 text-center bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">
-              Call Now
-            </a>
-            <button
-              data-token="2fc32083d0d34a2d8eb08ce327d13565"
-              data-orgname="Frost-Air"
-              class="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">
-              Book Online
-            </button>
+            <a href="tel:+14802562515" class="flex-1 text-center bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">Call Now</a>
+            <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air"
+                    class="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition font-medium">Book Online</button>
           </div>
-          <div class="h-3"></div>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="py-16 bg-white text-center">
-    <h1 class="text-5xl font-extrabold text-blue-800 mb-6">HVAC Services to Keep Arizona Comfortable</h1>
-    <p class="text-xl text-blue-700 max-w-2xl mx-auto mb-8">
-      Frost Air offers a full range of HVAC services to keep your home cool in the summer, warm in the winter, and energy-efficient year-round with transparent pricing and professional care.
-    </p>
-  </section>
-
-  <!-- Core Services -->
-  <section class="py-16 bg-blue-50">
-    <h2 class="text-4xl font-bold text-center text-blue-800 mb-10">Our Core Services</h2>
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 px-4">
-      <div class="frost-card p-6 text-center">
-        <img src="../assets/Repair.png" alt="AC Repair Arizona by Frost Air" class="rounded-lg mb-4 shadow" loading="lazy">
-        <h3 class="text-2xl font-semibold text-blue-800 mb-2">AC Repair</h3>
-        <p>Fast, honest repairs to keep your Arizona home cool and your system running efficiently during the hottest months.</p>
-      </div>
-      <div class="frost-card p-6 text-center">
-        <img src="../assets/newinstall2.png" alt="HVAC Installation Arizona by Frost Air" class="rounded-lg mb-4 shadow" loading="lazy">
-        <h3 class="text-2xl font-semibold text-blue-800 mb-2">Installation</h3>
-        <p>High-quality HVAC installations with financing options to fit your comfort needs and budget, ensuring reliable year-round climate control.</p>
-      </div>
-      <div class="frost-card p-6 text-center">
-        <img src="../assets/maintence 2.png" alt="HVAC Maintenance Arizona by Frost Air" class="rounded-lg mb-4 shadow" loading="lazy">
-        <h3 class="text-2xl font-semibold text-blue-800 mb-2">Maintenance</h3>
-        <p>Preventative maintenance services to extend the life of your system, improve energy efficiency, and prevent costly breakdowns.</p>
-      </div>
-    </div>
-
-    <!-- Pricing -->
-    <div class="frost-card p-6 md:col-span-3 text-center mt-12 max-w-5xl mx-auto">
-      <h3 class="text-3xl font-bold text-blue-800 mb-6">HVAC System Pricing</h3>
-      <p class="text-blue-700 mb-4">Transparent, competitive pricing for your system upgrades. Financing available to keep your home comfortable year-round without the upfront burden.</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold text-blue-800 mb-3">Gas Splits</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $6,699</li>
-            <li>3 Ton – $7,052</li>
-            <li>4 Ton – $7,865</li>
-            <li>5 Ton – $8,250</li>
-          </ul>
-        </div>
-        <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold text-blue-800 mb-3">Heatpump Splits</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $5,930</li>
-            <li>3 Ton – $6,337</li>
-            <li>4 Ton – $6,958</li>
-            <li>5 Ton – $7,915</li>
-          </ul>
-        </div>
-        <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold text-blue-800 mb-3">Package Heatpump</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $5,516</li>
-            <li>3 Ton – $6,190</li>
-            <li>4 Ton – $7,280</li>
-            <li>5 Ton – $7,626</li>
-          </ul>
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 grid lg:grid-cols-3 gap-10 items-start">
+      <div class="lg:col-span-2">
+        <h1 class="text-4xl font-bold text-blue-800 mb-4">HVAC Services</h1>
+        <p class="text-lg text-blue-800/90">Local, honest, and skilled. We handle everything—repairs, installs, and maintenance—so you don’t get passed around.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="tel:+14802562515" class="bg-green-600 text-white px-5 py-3 rounded-lg shadow hover:bg-green-700 transition font-semibold">Call Now</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air"
+                  class="bg-blue-600 text-white px-5 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold">Book Online</button>
         </div>
       </div>
-    </div>
-
-    <div class="md:col-span-3 flex justify-center mt-12">
-      <a href="../contact/contact.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 hover:shadow-md transition text-base font-semibold tracking-wide">Request a Quote</a>
+      <aside class="frost-card bg-white/70 backdrop-blur p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Financing Available</h3>
+        <p class="text-sm text-blue-900/80">New AC units from <strong>$5,516</strong>. No impact on credit to pre-qualify.</p>
+        <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 mt-4 text-blue-700 underline">
+          Get pre-qualified instantly <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+        </a>
+      </aside>
     </div>
   </section>
 
-  <!-- Promo Banner + Champion Badge -->
-  <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container">
+  <!-- Services Grid -->
+  <section class="pb-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <!-- Card template: icon, title, copy, bullets, badges -->
+      <article id="ac-repair" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="wrench" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">AC Repair</h2>
+        </div>
+        <p>Fix cooling issues, strange noises, or leaks fast. Transparent diagnostics and no surprise add-ons.</p>
+        <ul class="mt-3 list-disc list-inside text-sm text-blue-900/80">
+          <li>Refrigerant leaks & low charge</li><li>Capacitors, contactors, fan motors</li><li>Drain line flushes & pan safety</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="tel:+14802562515" class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">Call</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Book</button>
+        </div>
+      </article>
+
+      <article id="ac-tune-up" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="gauge" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">General AC Tune-Up</h2>
+        </div>
+        <p>Routine maintenance helps prevent major issues and ensures efficiency—clean coils, check refrigerant levels, inspect electrical.</p>
+        <ul class="mt-3 list-disc list-inside text-sm text-blue-900/80">
+          <li>Coil & blower cleaning</li><li>Electrical & safety checks</li><li>Temp split & airflow checks</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="../tools/load-calculator.html" class="px-4 py-2 rounded-lg ring-1 ring-blue-200 hover:bg-blue-50">Load Calc</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Book</button>
+        </div>
+      </article>
+
+      <article id="installation" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="package-check" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">HVAC Install / Replace</h2>
+        </div>
+        <p>Upgrade to efficient, quiet equipment. Permits, code compliance, commissioning—handled.</p>
+        <div class="mt-2 text-sm"><span class="px-2 py-1 rounded-full bg-blue-50 ring-1 ring-blue-200">Starting at $5,516</span></div>
+        <ul class="mt-3 list-disc list-inside text-sm text-blue-900/80">
+          <li>Manual J sizing & duct review</li><li>Thermostat setup & app pairing</li><li>Warranty registration</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg ring-1 ring-blue-200 hover:bg-blue-50">Financing</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Free Estimate</button>
+        </div>
+      </article>
+
+      <article id="heater-repair" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="flame" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Heater / Furnace Repair</h2>
+        </div>
+        <p>Restore heat safely—ignition, sensors, motors, or controls. Upfront pricing.</p>
+        <ul class="mt-3 list-disc list-inside text-sm text-blue-900/80">
+          <li>Safety & combustion checks</li><li>Limit/pressure switches</li><li>Inducer & blower diagnostics</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="tel:+14802562515" class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">Call</a>
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Book</button>
+        </div>
+      </article>
+
+      <article id="heating-tune-up" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="thermometer-snowflake" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Heating Tune-Up</h2>
+        </div>
+        <p>Seasonal checks to prep for winter—heat exchanger, burners, safeties, and airflow.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Schedule</button>
+        </div>
+      </article>
+
+      <article id="heater-install" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="factory" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Heater Install / Replace</h2>
+        </div>
+        <p>Modern, efficient furnaces with clean installs and thorough commissioning.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Free Estimate</button>
+        </div>
+      </article>
+
+      <article id="mini-split" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="split" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Mini-Split Service</h2>
+        </div>
+        <p>Repair or install ductless systems—great for room additions and garages.</p>
+        <div class="mt-2 text-sm"><span class="px-2 py-1 rounded-full bg-blue-50 ring-1 ring-blue-200">New systems from $1,600</span></div>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Quote</button>
+        </div>
+      </article>
+
+      <article id="heat-pump" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="repeat" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Heat Pump Service</h2>
+        </div>
+        <p>Maintenance and repair for high-efficiency heat pumps; defrost and reversing valve experts.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Book</button>
+        </div>
+      </article>
+
+      <article id="thermostat" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="smartphone" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Thermostat Service</h2>
+        </div>
+        <p>Smart or standard thermostats—install, configure apps, and troubleshoot wiring.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Schedule</button>
+        </div>
+      </article>
+
+      <article id="ductwork" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="wind" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Ductwork Repair</h2>
+        </div>
+        <p>Inspect and fix airflow and duct leaks—seal, insulate, and balance to boost comfort.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Book</button>
+        </div>
+      </article>
+
+      <article id="air-quality" class="frost-card p-6 rounded-xl shadow bg-white">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="sparkles" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Indoor Air Quality</h2>
+        </div>
+        <p>Filters, UV lights, and purifiers to improve indoor air quality and reduce allergens.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Quote</button>
+        </div>
+      </article>
+
+      <article id="leak-repair" class="frost-card p-6 rounded-xl shadow bg-white md:col-span-2 xl:col-span-1">
+        <div class="flex items-center gap-3 mb-3">
+          <i data-lucide="mic" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
+          <h2 class="text-2xl font-semibold text-blue-800">Leak Detection & Repair</h2>
+        </div>
+        <p>Advanced detection with infrared cameras and acoustic sensors; efficient, lasting repairs.</p>
+        <div class="mt-4 flex gap-2">
+          <button data-token="2fc32083d0d34a2d8eb08ce327d13565" data-orgname="Frost-Air" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Schedule</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container" role="status" aria-live="polite">
     <div id="promo-text" class="inline-block animate-marquee text-sm md:text-base whitespace-nowrap">
-       Financing Available · New AC Units from $5,516 · 
-      <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" 
-         target="_blank" rel="noopener noreferrer" 
-         class="underline hover:text-blue-200 font-semibold">
-         Get pre-qualified instantly →
-      </a> · No impact on credit · 
-      <a href="tel:+14802562515" class="underline hover:text-blue-200">Call us to confirm specials</a>
+      Financing Available · New AC Units from $5,516 ·
+      <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner" target="_blank" rel="noopener noreferrer"
+         class="underline hover:text-blue-200 font-semibold">Get pre-qualified instantly →</a>
+      · No impact on credit · <a href="tel:+14802562515" class="underline hover:text-blue-200">Call us to confirm specials</a>
     </div>
   </div>
 
+  <!-- Champion Dealer badge -->
   <div class="flex justify-end mt-4">
-    <img src="../assets/logo_champion_color.png" alt="Champion Heating and Cooling Certified Dealer - Frost Air Arizona" class="w-40 md:w-48 lg:w-56 h-auto" loading="lazy">
+    <img src="../assets/logo_champion_color.png" alt="Champion Heating and Cooling Certified Dealer - Frost Air Arizona"
+         class="w-40 md:w-48 lg:w-56 h-auto" loading="lazy" width="224" height="112">
   </div>
 
   <!-- Footer -->
@@ -224,5 +440,31 @@
   <!-- Scripts -->
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
   <script src="../js/main.js" defer></script>
+
+  <!-- Active tab & lucide icons -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+      const page = document.body.getAttribute('data-page');
+      if (page) {
+        document.querySelectorAll('[data-nav]').forEach(a => {
+          if (a.getAttribute('data-nav') === page) {
+            a.setAttribute('aria-current', 'page');
+            a.classList.add('text-blue-600','font-semibold');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- No-script booking fallback -->
+  <noscript>
+    <p style="text-align:center;margin:1rem 0;">
+      JavaScript is required for online booking. Please call
+      <a href="tel:+14802562515">480-256-2515</a> to schedule.
+    </p>
+  </noscript>
 </body>
 </html>
