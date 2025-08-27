@@ -3,67 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Page-specific SEO -->
   <title>Frost Air | HVAC FAQs</title>
+  <meta name="description" content="Quick answers to common HVAC questions from Frost Air: maintenance, sizing, efficiency, rebates, and more." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://frostairaz.com/faqs/faqs.html" />
 
-  <meta name="description" content="Quick answers to common HVAC questions from Frost Air: maintenance, sizing, efficiency, and more." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="./faqs.html" />
-
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Frost Air | HVAC FAQs" />
   <meta property="og:description" content="Quick answers to common HVAC questions from Frost Air." />
-  <meta property="og:image" content="../assets/FrostAir_YetiFull.png" />
-  <meta property="og:url" content="./faqs.html" />
-  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/faqs/faqs.html" />
+  <meta property="og:image" content="https://your-domain.com/assets/FrostAir_YetiFull.png" />
+  <meta property="og:site_name" content="Frost Air" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Frost Air | HVAC FAQs" />
+  <meta name="twitter:description" content="Quick answers to common HVAC questions from Frost Air." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/FrostAir_YetiFull.png" />
+  <meta name="theme-color" content="#1e3a8a" />
 
+  <!-- Styles / Icons -->
   <link rel="stylesheet" href="../css/styles.css" />
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Schema -->
+  <!-- JSON-LD: Local Business (keep consistent across pages) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"HVACBusiness",
+    "@id":"https://your-domain.com/#org",
     "name":"Frost Air",
-    "url":"../index.html",
-    "logo":"../assets/FrostAir_HorizontalDark.png",
-    "image":"../assets/FrostAir_YetiFull.png",
-    "description":"Reliable HVAC repair, installation, and maintenance services across Arizona.",
-    "telephone":"+14802562515",
-    "address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"USA"}
+    "url":"https://your-domain.com/",
+    "logo":"https://your-domain.com/assets/FrostAir_HorizontalDark.png",
+    "image":"https://your-domain.com/assets/og-frostair-hero.jpg",
+    "telephone":"+1-480-256-2515",
+    "priceRange":"$$",
+    "address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"US"},
+    "sameAs":[
+      "https://www.google.com/search?q=Frost+Air+Arizona",
+      "https://www.angi.com/companylist/us/az/casa-grande/frost-air-llc-reviews-1.htm",
+      "https://www.facebook.com/people/Frost-Air-LLC/61574608903910/"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage (matches questions below) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What does HVAC stand for?","acceptedAnswer":{"@type":"Answer","text":"Heating, Ventilation, and Air Conditioning."}},
+      {"@type":"Question","name":"What is the average life expectancy of an HVAC system?","acceptedAnswer":{"@type":"Answer","text":"Typically 10–15 years, depending on maintenance, usage, and environment."}},
+      {"@type":"Question","name":"How often should I change my air filters?","acceptedAnswer":{"@type":"Answer","text":"Replace disposable filters every 1–3 months. Washable filters should be cleaned monthly."}},
+      {"@type":"Question","name":"What is ENERGY STAR?","acceptedAnswer":{"@type":"Answer","text":"A government-backed program that certifies products and homes for energy efficiency."}},
+      {"@type":"Question","name":"What is SEER?","acceptedAnswer":{"@type":"Answer","text":"Seasonal Energy Efficiency Ratio; higher numbers indicate more efficient cooling performance."}},
+      {"@type":"Question","name":"What is a MERV rating?","acceptedAnswer":{"@type":"Answer","text":"Minimum Efficiency Reporting Value—higher ratings capture smaller particles for better filtration."}},
+      {"@type":"Question","name":"How can I tell if my heating system is working properly and efficiently?","acceptedAnswer":{"@type":"Answer","text":"Even temperatures, normal energy bills, no unusual noises/odors, and steady run times. Annual tune-ups help verify efficiency."}},
+      {"@type":"Question","name":"What should I consider when purchasing an air conditioner?","acceptedAnswer":{"@type":"Answer","text":"Proper sizing (Manual J), SEER/SEER2 efficiency, warranty, install quality, noise levels, and budget/rebates/financing."}},
+      {"@type":"Question","name":"Should I replace or repair my HVAC system?","acceptedAnswer":{"@type":"Answer","text":"If repairs exceed ~50% of a new system’s cost or the unit is 10–15+ years old, replacement may be more economical."}},
+      {"@type":"Question","name":"What goes into having an HVAC system installed?","acceptedAnswer":{"@type":"Answer","text":"Load calculation, equipment selection, permits, any needed duct/electrical work, installation, refrigerant charging, and commissioning."}},
+      {"@type":"Question","name":"How can I increase my HVAC system’s efficiency?","acceptedAnswer":{"@type":"Answer","text":"Change filters regularly, seal/insulate ducts, schedule maintenance, use a smart thermostat, shade windows, and set reasonable temps."}},
+      {"@type":"Question","name":"How do I know what size AC I need?","acceptedAnswer":{"@type":"Answer","text":"Use our Load Calculator for a ballpark; we confirm with a professional Manual J during your quote."}}
+    ]
   }
   </script>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900">
+<!-- data-page ensures active tab highlighting -->
+<body class="bg-gradient-to-b from-blue-50 to-white text-blue-900" data-page="faqs">
   <!-- Header -->
   <header class="site-header sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200">
     <div class="max-w-7xl mx-auto px-4">
       <div class="h-16 sm:h-18 md:h-24 flex items-center justify-between">
         <!-- Logo -->
-        <a href="../index.html" class="inline-flex items-center gap-2">
+        <a href="../index.html" class="inline-flex items-center gap-2" aria-label="Frost Air home">
           <img
             src="../assets/FrostAir_HorizontalDark.png"
             alt="Frost Air Heating & Cooling Logo"
             class="w-28 sm:w-36 md:w-48 lg:w-56 h-auto drop-shadow-lg"
-            loading="lazy"
+            loading="eager" fetchpriority="high"
           />
         </a>
 
         <!-- Desktop nav -->
         <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6 text-base lg:text-lg">
-          <a href="../index.html" class="hover:text-blue-500">Home</a>
-          <a href="../services/services.html" class="hover:text-blue-500">Services</a>
-          <a href="../contact/contact.html" class="hover:text-blue-500">Contact</a>
-          <a href="./faqs.html" class="hover:text-blue-500 font-semibold">FAQs</a>
+          <a href="../index.html" class="hover:text-blue-500" data-nav="home">Home</a>
+          <a href="../services/services.html" class="hover:text-blue-500" data-nav="services">Services</a>
+          <a href="../contact/contact.html" class="hover:text-blue-500" data-nav="contact">Contact</a>
+          <a href="./faqs.html" class="hover:text-blue-500" data-nav="faqs">FAQs</a>
+          <a href="../tools/load-calculator.html" class="hover:text-blue-500" data-nav="load-calculator">Load Calculator</a>
         </nav>
 
         <!-- Desktop CTAs -->
         <div class="hidden md:flex items-center gap-3">
-          <a href="tel:+14802562515"
-             class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">
-            Call Now
-          </a>
+          <a href="tel:+14802562515" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition font-medium">Call Now</a>
           <button
             data-token="2fc32083d0d34a2d8eb08ce327d13565"
             data-orgname="Frost-Air"
@@ -76,7 +112,7 @@
         <button id="navToggle"
           class="md:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-blue-200"
           aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-          <i data-lucide="menu"></i>
+          <i data-lucide="menu" aria-hidden="true"></i>
         </button>
       </div>
 
@@ -84,10 +120,11 @@
       <div id="mobileNav" class="md:hidden mobileNav hidden border-t border-blue-100 pb-3">
         <div class="mobileNav-inner">
           <nav class="flex flex-col gap-2 pt-3 text-base" aria-label="Mobile Navigation">
-            <a href="../index.html" class="px-2 py-2 rounded hover:bg-blue-50">Home</a>
-            <a href="../services/services.html" class="px-2 py-2 rounded hover:bg-blue-50">Services</a>
-            <a href="../contact/contact.html" class="px-2 py-2 rounded hover:bg-blue-50">Contact</a>
-            <a href="./faqs.html" class="px-2 py-2 rounded hover:bg-blue-50">FAQs</a>
+            <a href="../index.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="home">Home</a>
+            <a href="../services/services.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="services">Services</a>
+            <a href="../contact/contact.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="contact">Contact</a>
+            <a href="./faqs.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="faqs">FAQs</a>
+            <a href="../tools/load-calculator.html" class="px-2 py-2 rounded hover:bg-blue-50" data-nav="load-calculator">Load Calculator</a>
           </nav>
 
           <div class="mt-3 flex gap-2">
@@ -121,13 +158,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq0-content" id="faq0-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What does HVAC stand for?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq0-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq0-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              HVAC stands for Heating, Ventilation, and Air Conditioning.
+              Heating, Ventilation, and Air Conditioning.
             </div>
           </div>
         </div>
@@ -137,13 +174,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq1-content" id="faq1-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What is the average life expectancy of an HVAC system?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq1-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq1-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Most systems last 10–15 years, depending on maintenance and usage.
+              Most systems last 10–15 years, depending on maintenance, usage, and environment.
             </div>
           </div>
         </div>
@@ -153,13 +190,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq2-content" id="faq2-button">
             <span class="text-base md:text-lg font-medium text-gray-900">How often should I change my air filters?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq2-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq2-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Every 1–3 months for disposable filters; washable filters should be cleaned monthly.
+              Replace disposable filters every 1–3 months; clean washable filters monthly.
             </div>
           </div>
         </div>
@@ -169,13 +206,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq3-content" id="faq3-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What is ENERGY STAR?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq3-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq3-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              ENERGY STAR is a government-backed program certifying products for energy efficiency.
+              A government-backed program that certifies energy-efficient products and homes.
             </div>
           </div>
         </div>
@@ -185,13 +222,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq4-content" id="faq4-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What is SEER?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq4-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq4-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Seasonal Energy Efficiency Ratio—measures cooling efficiency; higher numbers mean more efficient units.
+              Seasonal Energy Efficiency Ratio—measures cooling efficiency; higher numbers mean greater efficiency.
             </div>
           </div>
         </div>
@@ -201,7 +238,7 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq5-content" id="faq5-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What is a MERV rating?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq5-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
@@ -217,13 +254,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq6-content" id="faq6-button">
             <span class="text-base md:text-lg font-medium text-gray-900">How can I tell if my heating system is working properly and efficiently?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq6-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq6-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Look for even temperatures, normal energy bills, steady run times, and no unusual noises or smells. Annual tune-ups help verify efficiency.
+              Look for even temperatures, normal bills, steady run times, and no unusual noises or smells. Annual tune-ups verify efficiency.
             </div>
           </div>
         </div>
@@ -233,7 +270,7 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq7-content" id="faq7-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What should I consider when purchasing an air conditioner?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq7-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
@@ -249,13 +286,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq8-content" id="faq8-button">
             <span class="text-base md:text-lg font-medium text-gray-900">Should I replace or repair my HVAC system?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq8-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq8-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              If repairs exceed ~50% of the cost of a new system or the system is 10–15+ years old, replacement often makes more sense.
+              If repairs exceed ~50% of a new system or the unit is 10–15+ years old, replacement often makes more sense.
             </div>
           </div>
         </div>
@@ -265,13 +302,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq9-content" id="faq9-button">
             <span class="text-base md:text-lg font-medium text-gray-900">What goes into having an HVAC system installed?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq9-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq9-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Load calculation, equipment selection, permits, ductwork/electrical as needed, installation, refrigerant charging, testing/commissioning.
+              Load calculation, equipment selection, permits, any needed duct/electrical work, installation, refrigerant charging, and commissioning.
             </div>
           </div>
         </div>
@@ -281,7 +318,7 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq10-content" id="faq10-button">
             <span class="text-base md:text-lg font-medium text-gray-900">How can I increase my HVAC system’s efficiency?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq10-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
@@ -297,13 +334,13 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq11-content" id="faq11-button">
             <span class="text-base md:text-lg font-medium text-gray-900">At what temperature should I set my thermostat?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq11-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
                role="region" aria-labelledby="faq11-button">
             <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
-              Common guidance: 78°F in summer and 68°F in winter for a comfort/efficiency balance (adjust to taste).
+              Common guidance: 78°F in summer and 68°F in winter for a comfort/efficiency balance—adjust to taste.
             </div>
           </div>
         </div>
@@ -313,7 +350,7 @@
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq12-content" id="faq12-button">
             <span class="text-base md:text-lg font-medium text-gray-900">How do I know what size AC I need?</span>
-            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none" aria-hidden="true">+</span>
           </button>
           <div id="faq12-content"
                class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
@@ -328,7 +365,7 @@
   </section>
 
   <!-- Promo Banner -->
-  <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container">
+  <div id="promo-banner" class="bg-blue-900 text-white py-3 shadow-lg w-full overflow-hidden marquee-container" role="status" aria-live="polite">
     <div id="promo-text" class="inline-block animate-marquee text-sm md:text-base whitespace-nowrap">
       Financing Available · New AC Units from $5,516 ·
       <a href="https://www.acornfinance.com/pre-qualify/?d=ASLDT&utm_medium=web_pre_qual_banner"
@@ -344,7 +381,7 @@
   <div class="flex justify-end mt-4">
     <img src="../assets/logo_champion_color.png"
          alt="Champion Heating and Cooling Certified Dealer - Frost Air Arizona"
-         class="w-40 md:w-48 lg:w-56 h-auto" loading="lazy">
+         class="w-40 md:w-48 lg:w-56 h-auto" loading="lazy" width="224" height="112">
   </div>
 
   <!-- Footer -->
@@ -355,5 +392,31 @@
   <!-- Scripts -->
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
   <script src="../js/main.js" defer></script>
+
+  <!-- Match active tab across pages (works with body[data-page]) -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+      const page = document.body.getAttribute('data-page');
+      if (page) {
+        document.querySelectorAll('[data-nav]').forEach(a => {
+          if (a.getAttribute('data-nav') === page) {
+            a.setAttribute('aria-current', 'page');
+            a.classList.add('text-blue-600','font-semibold');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- No-script booking fallback -->
+  <noscript>
+    <p style="text-align:center;margin:1rem 0;">
+      JavaScript is required for online booking. Please call
+      <a href="tel:+14802562515">480-256-2515</a> to schedule.
+    </p>
+  </noscript>
 </body>
 </html>
