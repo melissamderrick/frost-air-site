@@ -256,176 +256,163 @@
   </footer>
 
   <!-- Scripts -->
-  <script>
-    // Tab + method toggles
-    const tabCool = document.getElementById('tabCool');
-    const tabHeat = document.getElementById('tabHeat');
-    const coolForm = document.getElementById('coolForm');
-    const heatForm = document.getElementById('heatForm');
-    const coolResult = document.getElementById('coolResult');
-    const heatResult = document.getElementById('heatResult');
-    const coolNumbers = document.getElementById('coolNumbers');
-    const sfTonBanner = document.getElementById('sfTonBanner');
+<script>
+  const tabCool = document.getElementById('tabCool');
+  const tabHeat = document.getElementById('tabHeat');
+  const coolForm = document.getElementById('coolForm');
+  const heatForm = document.getElementById('heatForm');
+  const coolResult = document.getElementById('coolResult');
+  const heatResult = document.getElementById('heatResult');
+  const coolNumbers = document.getElementById('coolNumbers');
+  const sfTonBanner = document.getElementById('sfTonBanner');
 
-    const mQuick = document.getElementById('mQuick');
-    const mDetailed = document.getElementById('mDetailed');
+  const mQuick = document.getElementById('mQuick');
+  const mDetailed = document.getElementById('mDetailed');
 
-    // Inputs that change meaning between methods
-    const zoneSel = document.getElementById('c_zone');
-    const heightInput = document.getElementById('c_height');
+  const zoneSel = document.getElementById('c_zone');
 
-    let method = 'quick'; // 'quick' (sqft) or 'detailed' (ft3)
+  let method = 'quick'; // 'quick' (sqft) or 'detailed' (ft3)
 
-    function showCooling() {
-      tabCool.classList.add('bg-blue-600','text-white');
-      tabCool.classList.remove('bg-white','text-blue-700');
-      tabHeat.classList.add('bg-white','text-blue-700');
-      tabHeat.classList.remove('bg-blue-600','text-white');
-      coolForm.classList.remove('hidden');
-      heatForm.classList.add('hidden');
-      coolResult.classList.add('hidden');
-    }
-    function showHeating() {
-      tabHeat.classList.add('bg-blue-600','text-white');
-      tabHeat.classList.remove('bg-white','text-blue-700');
-      tabCool.classList.add('bg-white','text-blue-700');
-      tabCool.classList.remove('bg-blue-600','text-white');
-      heatForm.classList.remove('hidden');
-      coolForm.classList.add('hidden');
-      heatResult.classList.add('hidden');
-    }
+  const ZONE_NAMES = ['Mild', 'Hot AZ', 'Very Hot']; // matches the 3 options (18,22,28)
 
-    function setMethod(next) {
-      method = next;
+  function refreshZoneLabels() {
+    // Show either BTU/ft² (quick) or derived BTU/ft³ (detailed) at 8ft baseline
+    Array.from(zoneSel.options).forEach((opt, idx) => {
+      const perFt2 = +opt.value;
       if (method === 'quick') {
-        mQuick.classList.add('bg-blue-600','text-white');
-        mQuick.classList.remove('bg-white','text-blue-700');
-        mDetailed.classList.add('bg-white','text-blue-700');
-        mDetailed.classList.remove('bg-blue-600','text-white');
-        // Climate factor is BTU/ft²
-        zoneSel.options[0].textContent = 'Mild (18 BTU/hr·ft²)';
-        zoneSel.options[1].textContent = 'Hot AZ (22 BTU/hr·ft²)';
-        zoneSel.options[2].textContent = 'Very Hot (28 BTU/hr·ft²)';
+        opt.textContent = `${ZONE_NAMES[idx]} (${perFt2} BTU/hr·ft²)`;
       } else {
-        mDetailed.classList.add('bg-blue-600','text-white');
-        mDetailed.classList.remove('bg-white','text-blue-700');
-        mQuick.classList.add('bg-white','text-blue-700');
-        mQuick.classList.remove('bg-blue-600','text-white');
-        // Climate factor is BTU/ft³
-        zoneSel.options[0].textContent = 'Mild (30 BTU/hr·ft³)';
-        zoneSel.options[1].textContent = 'Hot AZ (35 BTU/hr·ft³)';
-        zoneSel.options[2].textContent = 'Very Hot (40 BTU/hr·ft³)';
-        // Also map values for detailed
-        zoneSel.options[0].value = 30;
-        zoneSel.options[1].value = 35;
-        zoneSel.options[2].value = 40;
+        const perFt3 = (perFt2 / 8);
+        // Keep 2 decimals for readability
+        opt.textContent = `${ZONE_NAMES[idx]} (~${perFt3.toFixed(2)} BTU/hr·ft³ @ 8ft)`;
       }
-      // Reset to default option when switching for clarity
-      zoneSel.selectedIndex = method === 'quick' ? 1 : 1;
-      coolResult.classList.add('hidden');
+    });
+  }
+
+  function showCooling() {
+    tabCool.classList.add('bg-blue-600','text-white');
+    tabCool.classList.remove('bg-white','text-blue-700');
+    tabHeat.classList.add('bg-white','text-blue-700');
+    tabHeat.classList.remove('bg-blue-600','text-white');
+    coolForm.classList.remove('hidden');
+    heatForm.classList.add('hidden');
+    coolResult.classList.add('hidden');
+  }
+  function showHeating() {
+    tabHeat.classList.add('bg-blue-600','text-white');
+    tabHeat.classList.remove('bg-white','text-blue-700');
+    tabCool.classList.add('bg-white','text-blue-700');
+    tabCool.classList.remove('bg-blue-600','text-white');
+    heatForm.classList.remove('hidden');
+    coolForm.classList.add('hidden');
+    heatResult.classList.add('hidden');
+  }
+
+  function setMethod(next) {
+    method = next;
+    if (method === 'quick') {
+      mQuick.classList.add('bg-blue-600','text-white');
+      mQuick.classList.remove('bg-white','text-blue-700');
+      mDetailed.classList.add('bg-white','text-blue-700');
+      mDetailed.classList.remove('bg-blue-600','text-white');
+    } else {
+      mDetailed.classList.add('bg-blue-600','text-white');
+      mDetailed.classList.remove('bg-white','text-blue-700');
+      mQuick.classList.add('bg-white','text-blue-700');
+      mQuick.classList.remove('bg-blue-600','text-white');
+    }
+    // IMPORTANT: do NOT change option values; they stay as per-ft² (18/22/28)
+    refreshZoneLabels();
+    coolResult.classList.add('hidden');
+  }
+
+  tabCool.addEventListener('click', showCooling);
+  tabHeat.addEventListener('click', showHeating);
+  mQuick.addEventListener('click', () => setMethod('quick'));
+  mDetailed.addEventListener('click', () => setMethod('detailed'));
+
+  // Cooling calc
+  document.getElementById('coolForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const sqft = +document.getElementById('c_sqft').value || 0;
+    const height = +document.getElementById('c_height').value || 8;
+    const zonePerFt2 = +document.getElementById('c_zone').value || 22; // values always per ft²
+    const exposure = +document.getElementById('c_exposure').value || 1.0;
+    const insul = +document.getElementById('c_insul').value || 1.0;
+    const windows = +document.getElementById('c_windows').value || 1.0;
+    const people = +document.getElementById('c_people').value || 0;
+    const infil = +document.getElementById('c_infil').value || 1.0;
+
+    let btus = 0;
+    if (method === 'quick') {
+      // sqft baseline
+      btus = sqft * zonePerFt2;
+    } else {
+      // detailed: volume × (per-ft² / 8)
+      const perFt3 = zonePerFt2 / 8;
+      const volume = sqft * height;
+      btus = volume * perFt3;
     }
 
-    tabCool.addEventListener('click', showCooling);
-    tabHeat.addEventListener('click', showHeating);
-    mQuick.addEventListener('click', () => {
-      // reset values for sqft scale
-      zoneSel.options[0].value = 18;
-      zoneSel.options[1].value = 22;
-      zoneSel.options[2].value = 28;
-      setMethod('quick');
-    });
-    mDetailed.addEventListener('click', () => setMethod('detailed'));
+    // multipliers
+    btus *= exposure * insul * windows * infil;
+    // small sensible allowance for extra people (>2)
+    btus += Math.max(0, people - 2) * 230;
 
-    // Cooling calc
-    document.getElementById('coolForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const sqft = +document.getElementById('c_sqft').value || 0;
-      const height = +document.getElementById('c_height').value || 8;
-      const zone = +document.getElementById('c_zone').value || (method === 'quick' ? 22 : 35);
-      const exposure = +document.getElementById('c_exposure').value || 1.0;
-      const insul = +document.getElementById('c_insul').value || 1.0;
-      const windows = +document.getElementById('c_windows').value || 1.0;
-      const people = +document.getElementById('c_people').value || 0;
-      const infil = +document.getElementById('c_infil').value || 1.0;
+    btus = Math.max(0, btus);
+    const tons = btus / 12000;
 
-      let btus = 0;
-      if (method === 'quick') {
-        // ServiceTitan-style: sqft * BTU/ft², then multipliers
-        btus = sqft * zone;
+    // sf/ton banner
+    const sfPerTon = tons > 0 ? (sqft / tons) : 0;
+    let banner = '';
+    if (sqft > 0 && tons > 0) {
+      if (sfPerTon < 350 || sfPerTon > 700) {
+        banner = `<span class="inline-block mt-1 px-2 py-1 rounded bg-yellow-100 text-yellow-900 ring-1 ring-yellow-200">
+          Heads up: this is about ${Math.round(sfPerTon)} sq ft/ton. Consider a Manual J confirmation.
+        </span>`;
       } else {
-        // Detailed: volume * BTU/ft³
-        const volume = sqft * height;
-        btus = volume * zone;
+        banner = `<span class="inline-block mt-1 px-2 py-1 rounded bg-green-50 text-green-900 ring-1 ring-green-200">
+          ~${Math.round(sfPerTon)} sq ft/ton (within a typical guardrail).
+        </span>`;
       }
-      // multipliers
-      btus *= exposure * insul * windows * infil;
-      // simple allowance for people beyond 2 (sensible)
-      btus += Math.max(0, people - 2) * 230;
-
-      btus = Math.max(0, btus);
-      const tons = btus / 12000;
-
-      // sf/ton sanity check (only meaningful for sqft-based, but we can still show)
-      const sfPerTon = tons > 0 ? (sqft / tons) : 0;
-      let banner = '';
-      if (sqft > 0 && tons > 0) {
-        if (sfPerTon < 350 || sfPerTon > 700) {
-          banner = `<span class="inline-block mt-1 px-2 py-1 rounded bg-yellow-100 text-yellow-900 ring-1 ring-yellow-200">
-            Heads up: this is about ${Math.round(sfPerTon)} sq ft/ton. Consider a Manual J confirmation.
-          </span>`;
-        } else {
-          banner = `<span class="inline-block mt-1 px-2 py-1 rounded bg-green-50 text-green-900 ring-1 ring-green-200">
-            ~${Math.round(sfPerTon)} sq ft/ton (within a typical guardrail).
-          </span>`;
-        }
-      }
-
-      coolNumbers.innerHTML = `~ <strong>${tons.toFixed(1)} tons</strong>
-        (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
-      sfTonBanner.innerHTML = banner;
-
-      coolResult.classList.remove('hidden');
-      window.scrollTo({ top: coolResult.offsetTop - 120, behavior: 'smooth' });
-    });
-
-    // Heating calc (sqft baseline scaled by ΔT, with multipliers)
-    document.getElementById('heatForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const sqft = +document.getElementById('h_sqft').value || 0;
-      const height = +document.getElementById('h_height').value || 8;
-      const deltaT = +document.getElementById('h_delta').value || 35;
-      const insul = +document.getElementById('h_insul').value || 1.0;
-      const infil = +document.getElementById('h_infil').value || 1.0;
-
-      // Baseline ~15 BTU/hr·ft² at ΔT=35 for AZ-type construction; scale by ΔT
-      const basePerSqftAt35 = 15;
-      let btus = sqft * basePerSqftAt35 * (deltaT / 35);
-      btus *= insul * infil;
-
-      btus = Math.max(0, btus);
-
-      const kBTU = btus / 1000;
-      document.getElementById('heatNumbers').innerHTML =
-        `~ <strong>${Math.round(kBTU)}</strong> kBTU/hr (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
-      heatResult.classList.remove('hidden');
-      window.scrollTo({ top: heatResult.offsetTop - 120, behavior: 'smooth' });
-    });
-
-    // Defaults
-    function init() {
-      // start in Quick (sqft) mode
-      setMethod('quick');
-      // reset option values for quick mode (BTU/ft²)
-      zoneSel.options[0].value = 18;
-      zoneSel.options[1].value = 22;
-      zoneSel.options[2].value = 28;
-      // show Cooling first
-      showCooling();
-      if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons();
     }
-    init();
-  </script>
 
+    coolNumbers.innerHTML = `~ <strong>${tons.toFixed(1)} tons</strong>
+      (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
+    sfTonBanner.innerHTML = banner;
+
+    coolResult.classList.remove('hidden');
+    window.scrollTo({ top: coolResult.offsetTop - 120, behavior: 'smooth' });
+  });
+
+  // Heating calc 
+  document.getElementById('heatForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const sqft = +document.getElementById('h_sqft').value || 0;
+    const height = +document.getElementById('h_height').value || 8;
+    const deltaT = +document.getElementById('h_delta').value || 35;
+    const insul = +document.getElementById('h_insul').value || 1.0;
+    const infil = +document.getElementById('h_infil').value || 1.0;
+
+    const basePerSqftAt35 = 15;
+    let btus = sqft * basePerSqftAt35 * (deltaT / 35);
+    btus *= insul * infil;
+    btus = Math.max(0, btus);
+
+    const kBTU = btus / 1000;
+    document.getElementById('heatNumbers').innerHTML =
+      `~ <strong>${Math.round(kBTU)}</strong> kBTU/hr (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
+    document.getElementById('heatResult').classList.remove('hidden');
+    window.scrollTo({ top: document.getElementById('heatResult').offsetTop - 120, behavior: 'smooth' });
+  });
+
+  // Init
+  (function init() {
+    setMethod('quick');   // default mode
+    showCooling();        // default tab
+    if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons();
+  })();
+</script>
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
   <script defer src="../js/main.js"></script>
 </body>
