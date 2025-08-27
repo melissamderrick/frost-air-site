@@ -46,7 +46,7 @@
   }
   </script>
 
-  <!-- JSON-LD: Services as an ItemList (kept + consistent) -->
+  <!-- JSON-LD: Services as an ItemList -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -159,36 +159,101 @@
       </div>
     </div>
 
-    <!-- Pricing List -->
+    <!-- Pricing List (now with pre-filled contact links) -->
     <div class="frost-card p-6 md:col-span-3 text-center mt-12 max-w-5xl mx-auto bg-white rounded-xl shadow">
       <h3 class="text-3xl font-bold text-blue-800 mb-6">HVAC System Pricing</h3>
       <p class="text-blue-700 mb-4">Transparent, competitive pricing for your system upgrades. Financing available to keep your home comfortable year-round without the upfront burden.</p>
       <div class="grid md:grid-cols-3 gap-6">
+        <!-- Gas Splits -->
         <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold text-blue-800 mb-3">Gas Splits</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $6,699</li>
-            <li>3 Ton – $7,052</li>
-            <li>4 Ton – $7,865</li>
-            <li>5 Ton – $8,250</li>
+          <ul class="text-blue-800 space-y-2">
+            <li class="flex items-center justify-between gap-2">
+              <span>2 Ton – $6,699</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Gas%20Split&size=2%20Ton&price=6699"
+                 aria-label="Request quote for 2 Ton Gas Split at $6,699">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>3 Ton – $7,052</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Gas%20Split&size=3%20Ton&price=7052"
+                 aria-label="Request quote for 3 Ton Gas Split at $7,052">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>4 Ton – $7,865</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Gas%20Split&size=4%20Ton&price=7865"
+                 aria-label="Request quote for 4 Ton Gas Split at $7,865">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>5 Ton – $8,250</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Gas%20Split&size=5%20Ton&price=8250"
+                 aria-label="Request quote for 5 Ton Gas Split at $8,250">Request</a>
+            </li>
           </ul>
         </div>
+
+        <!-- Heat Pump Splits -->
         <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold text-blue-800 mb-3">Heat Pump Splits</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $5,930</li>
-            <li>3 Ton – $6,337</li>
-            <li>4 Ton – $6,958</li>
-            <li>5 Ton – $7,915</li>
+          <ul class="text-blue-800 space-y-2">
+            <li class="flex items-center justify-between gap-2">
+              <span>2 Ton – $5,930</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Heat%20Pump%20Split&size=2%20Ton&price=5930"
+                 aria-label="Request quote for 2 Ton Heat Pump Split at $5,930">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>3 Ton – $6,337</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Heat%20Pump%20Split&size=3%20Ton&price=6337"
+                 aria-label="Request quote for 3 Ton Heat Pump Split at $6,337">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>4 Ton – $6,958</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Heat%20Pump%20Split&size=4%20Ton&price=6958"
+                 aria-label="Request quote for 4 Ton Heat Pump Split at $6,958">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>5 Ton – $7,915</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Heat%20Pump%20Split&size=5%20Ton&price=7915"
+                 aria-label="Request quote for 5 Ton Heat Pump Split at $7,915">Request</a>
+            </li>
           </ul>
         </div>
+
+        <!-- Package Heat Pump -->
         <div class="bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold text-blue-800 mb-3">Package Heat Pump</h4>
-          <ul class="text-blue-800 space-y-1">
-            <li>2 Ton – $5,516</li>
-            <li>3 Ton – $6,190</li>
-            <li>4 Ton – $7,280</li>
-            <li>5 Ton – $7,626</li>
+          <ul class="text-blue-800 space-y-2">
+            <li class="flex items-center justify-between gap-2">
+              <span>2 Ton – $5,516</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Package%20Heat%20Pump&size=2%20Ton&price=5516"
+                 aria-label="Request quote for 2 Ton Package Heat Pump at $5,516">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>3 Ton – $6,190</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Package%20Heat%20Pump&size=3%20Ton&price=6190"
+                 aria-label="Request quote for 3 Ton Package Heat Pump at $6,190">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>4 Ton – $7,280</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Package%20Heat%20Pump&size=4%20Ton&price=7280"
+                 aria-label="Request quote for 4 Ton Package Heat Pump at $7,280">Request</a>
+            </li>
+            <li class="flex items-center justify-between gap-2">
+              <span>5 Ton – $7,626</span>
+              <a class="text-sm px-2 py-1 rounded ring-1 ring-blue-200 hover:bg-white"
+                 href="../contact/contact.html?interest=Package%20Heat%20Pump&size=5%20Ton&price=7626"
+                 aria-label="Request quote for 5 Ton Package Heat Pump at $7,626">Request</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -199,9 +264,10 @@
     </div>
   </section>
 
-  <!-- Detailed Services Grid (kept, with slight copy blend) -->
+  <!-- Detailed Services Grid -->
   <section class="pb-12">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <!-- (Cards unchanged from the previous blend) -->
       <article id="ac-repair" class="frost-card p-6 rounded-xl shadow bg-white">
         <div class="flex items-center gap-3 mb-3">
           <i data-lucide="wrench" class="w-6 h-6 text-blue-700" aria-hidden="true"></i>
