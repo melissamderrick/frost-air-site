@@ -110,16 +110,19 @@
         </div>
       </div>
 
+      <!-- A11y live region -->
+      <div id="a11y-status" class="sr-only" aria-live="polite"></div>
+
       <!-- Cooling Form -->
       <form id="coolForm" class="space-y-4">
         <div class="grid md:grid-cols-3 gap-4">
           <div>
             <label class="block font-medium">Home Square Footage</label>
-            <input type="number" id="c_sqft" class="w-full border rounded p-2" placeholder="e.g. 2000" required />
+            <input type="number" id="c_sqft" class="w-full border rounded p-2" placeholder="e.g. 2000" min="300" required />
           </div>
           <div>
             <label class="block font-medium">Ceiling Height (ft)</label>
-            <input type="number" id="c_height" class="w-full border rounded p-2" placeholder="e.g. 8" value="8" required />
+            <input type="number" id="c_height" class="w-full border rounded p-2" placeholder="e.g. 8" value="8" min="7" required />
           </div>
           <div>
             <label class="block font-medium">Solar/Exposure</label>
@@ -150,7 +153,7 @@
           </div>
           <div>
             <label class="block font-medium">Occupants</label>
-            <input type="number" id="c_people" class="w-full border rounded p-2" placeholder="e.g. 3" value="3" />
+            <input type="number" id="c_people" class="w-full border rounded p-2" placeholder="e.g. 3" value="3" min="0" />
           </div>
         </div>
 
@@ -164,12 +167,15 @@
             </select>
           </div>
           <div>
-            <label class="block font-medium">Climate (BTU/ft³)</label>
-            <select id="c_zone" class="w-full border rounded p-2" title="Rule-of-thumb sensible load per cubic foot for summer">
-              <option value="30">Mild</option>
-              <option value="35" selected>Hot (AZ typical)</option>
-              <option value="40">Very Hot</option>
+            <label class="block font-medium">Climate (BTU/ft²)</label>
+            <select id="c_zone" class="w-full border rounded p-2" title="Rule-of-thumb sensible load per square foot for summer">
+              <option value="18">Mild</option>
+              <option value="22" selected>Hot (AZ typical)</option>
+              <option value="28">Very Hot</option>
             </select>
+            <p class="text-xs text-gray-600 mt-1">
+              AZ baseline ~22 BTU/hr·ft² (hot summer). Full sun/exposure and big west windows push this higher.
+            </p>
           </div>
           <div class="flex items-end">
             <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">Calculate Cooling</button>
@@ -193,15 +199,15 @@
         <div class="grid md:grid-cols-3 gap-4">
           <div>
             <label class="block font-medium">Home Square Footage</label>
-            <input type="number" id="h_sqft" class="w-full border rounded p-2" placeholder="e.g. 2000" required />
+            <input type="number" id="h_sqft" class="w-full border rounded p-2" placeholder="e.g. 2000" min="300" required />
           </div>
           <div>
             <label class="block font-medium">Ceiling Height (ft)</label>
-            <input type="number" id="h_height" class="w-full border rounded p-2" placeholder="e.g. 8" value="8" required />
+            <input type="number" id="h_height" class="w-full border rounded p-2" placeholder="e.g. 8" value="8" min="7" required />
           </div>
           <div>
             <label class="block font-medium">Design ΔT (°F)</label>
-            <input type="number" id="h_delta" class="w-full border rounded p-2" placeholder="e.g. 35" value="35" required />
+            <input type="number" id="h_delta" class="w-full border rounded p-2" placeholder="e.g. 35" value="35" min="10" required />
             <p class="text-xs text-gray-600 mt-1">Indoor setpoint minus winter design outdoor temp (e.g., 70°F – 35°F = 35).</p>
           </div>
         </div>
@@ -239,7 +245,11 @@
 
       <!-- Notes -->
       <div class="mt-8 text-sm text-gray-700">
-        <p><strong>Heads up:</strong> These simplified calcs use common factors (volume×climate factor for cooling; UA×ΔT for heating with multipliers for insulation & infiltration). Actual design uses detailed room-by-room Manual&nbsp;J.</p>
+        <p><strong>Heads up:</strong> These simplified calcs use common factors
+          (<span class="underline decoration-dotted" title="Cooling baseline uses BTU/hr per square foot with multipliers for exposure, insulation, windows, and infiltration.">sqft×climate factor for cooling</span>;
+          <span class="underline decoration-dotted" title="Heating uses a per-sqft baseline scaled by your chosen ΔT with insulation & infiltration multipliers.">per-sqft baseline × ΔT for heating</span>).
+          Actual design uses detailed room-by-room Manual&nbsp;J.
+        </p>
       </div>
     </div>
   </section>
@@ -279,58 +289,121 @@
     tabCool.addEventListener('click', showCooling);
     tabHeat.addEventListener('click', showHeating);
 
-    // Cooling calc
+    // ---------- Cooling calc (sqft-based baseline with range badge) ----------
     document.getElementById('coolForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const sqft = +document.getElementById('c_sqft').value || 0;
-      const height = +document.getElementById('c_height').value || 8;
-      const zone = +document.getElementById('c_zone').value || 35;
+      const zonePerSqft = +document.getElementById('c_zone').value || 22; // BTU/hr per ft²
       const exposure = +document.getElementById('c_exposure').value || 1.0;
       const insul = +document.getElementById('c_insul').value || 1.0;
       const windows = +document.getElementById('c_windows').value || 1.0;
       const people = +document.getElementById('c_people').value || 0;
       const infil = +document.getElementById('c_infil').value || 1.0;
 
-      const volume = sqft * height;
-      // sensible load base rule (BTU/hr): volume * zoneFactor
-      let btus = volume * zone;
-      // multipliers
-      btus *= exposure * insul * windows * infil;
-      // latent + occupants allowance (~230 BTU/hr per extra person beyond 2)
-      const extraPeople = Math.max(0, people - 2);
-      btus += extraPeople * 230;
+      // Base sensible load
+      let btus = sqft * zonePerSqft * exposure * insul * windows * infil;
 
-      const tons = (btus / 12000);
+      // People allowance (~230 BTU/hr per person beyond 2)
+      btus += Math.max(0, people - 2) * 230;
+
+      btus = Math.max(0, btus);
+      const tons = btus / 12000;
+
+      // Range badge
+      const sqftPerTon = sqft / Math.max(tons, 0.001);
+      let label = 'typical range', klass = 'bg-white ring-blue-200 text-blue-800';
+      if (sqftPerTon < 500) { label = 'likely oversized'; klass = 'bg-red-50 ring-red-200 text-red-700'; }
+      else if (sqftPerTon > 900) { label = 'possibly undersized'; klass = 'bg-amber-50 ring-amber-200 text-amber-700'; }
+
       const resultEl = document.getElementById('coolNumbers');
-      resultEl.innerHTML = `~ <strong>${tons.toFixed(1)} tons</strong> (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
+      resultEl.innerHTML = `~ <strong>${tons.toFixed(1)} tons</strong>
+        (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)
+        <span class="ml-2 inline-flex items-center text-xs px-2 py-0.5 rounded ring-1 ${klass}">
+          ~${Math.round(sqftPerTon)} sq ft/ton · ${label}
+        </span>`;
+
+      // Reveal & a11y announce
       document.getElementById('coolResult').classList.remove('hidden');
+      const live = document.getElementById('a11y-status');
+      if (live) live.textContent = `Cooling load approximately ${tons.toFixed(1)} tons, ${Math.round(btus)} BTU per hour, about ${Math.round(sqftPerTon)} square feet per ton.`;
+
       window.scrollTo({ top: document.getElementById('coolResult').offsetTop - 120, behavior: 'smooth' });
     });
 
-    // Heating calc
+    // ---------- Heating calc (sqft baseline scaled by ΔT) ----------
     document.getElementById('heatForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const sqft = +document.getElementById('h_sqft').value || 0;
-      const height = +document.getElementById('h_height').value || 8;
       const deltaT = +document.getElementById('h_delta').value || 35;
       const insul = +document.getElementById('h_insul').value || 1.0;
       const infil = +document.getElementById('h_infil').value || 1.0;
 
-      // Simple UA estimate via volume * coefficient (very approximate)
-      const volume = sqft * height;
-      const baseU = 0.6 / 60; // approx BTU/hr·°F per ft³ baseline (coarse rule), scaled down
-      let btus = volume * baseU * deltaT;
-      btus *= insul * infil;
+      // Baseline ~15 BTU/hr·ft² at ΔT=35 for AZ-type construction
+      const basePerSqftAt35 = 15;
+      let btus = sqft * basePerSqftAt35 * (deltaT / 35) * insul * infil;
 
+      btus = Math.max(0, btus);
       const kBTU = btus / 1000;
+
       const resultEl = document.getElementById('heatNumbers');
       resultEl.innerHTML = `~ <strong>${Math.round(kBTU)}</strong> kBTU/hr (<span class="whitespace-nowrap">${Math.round(btus).toLocaleString()} BTU/hr</span>)`;
       document.getElementById('heatResult').classList.remove('hidden');
+
+      const live = document.getElementById('a11y-status');
+      if (live) live.textContent = `Heating load approximately ${Math.round(kBTU)} thousand BTU per hour.`;
+
       window.scrollTo({ top: document.getElementById('heatResult').offsetTop - 120, behavior: 'smooth' });
     });
 
     // Default tab
     showCooling();
+
+    // ---------- Tooltip helper & injections ----------
+    function addTooltip(labelEl, text) {
+      if (!labelEl) return;
+      const wrapper = document.createElement('span');
+      wrapper.className = 'relative inline-flex items-center group align-middle';
+      wrapper.innerHTML = `
+        <button type="button" class="ml-1 inline-flex items-center justify-center w-4 h-4 rounded hover:ring-2 ring-blue-200"
+                aria-label="More info" tabindex="0">
+          <i data-lucide="info" class="w-4 h-4"></i>
+        </button>
+        <span class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 hidden group-hover:block
+                     whitespace-nowrap rounded-md bg-white text-blue-900 text-xs px-2 py-1 shadow ring-1 ring-blue-200">
+          ${text}
+        </span>`;
+      labelEl.appendChild(wrapper);
+    }
+
+    // Attach tooltips (robust selectors)
+    addTooltip(document.querySelector('#c_sqft')?.closest('div')?.querySelector('label'),
+      'Conditioned floor area used for quick sizing.');
+    addTooltip(document.querySelector('#c_height')?.closest('div')?.querySelector('label'),
+      'Shown for info; quick calc is per-sqft. Manual J accounts for volume/UA.');
+    addTooltip(document.querySelector('#c_exposure')?.closest('div')?.querySelector('label'),
+      'Shaded vs. full sun affects sensible load (west/south glass hits hardest).');
+    addTooltip(document.querySelector('#c_insul')?.closest('div')?.querySelector('label'),
+      'Overall envelope quality (attic + walls). Better insulation reduces load.');
+    addTooltip(document.querySelector('#c_windows')?.closest('div')?.querySelector('label'),
+      'Window area fraction. Higher glass percentages increase cooling load.');
+    addTooltip(document.querySelector('#c_infil')?.closest('div')?.querySelector('label'),
+      'Air leakage. Leaky homes add sensible load and comfort swings.');
+    addTooltip(document.querySelector('#c_zone')?.closest('div')?.querySelector('label'),
+      'BTU/hr per square foot baseline for summer. Phoenix ≈ 22 is typical.');
+    addTooltip(document.querySelector('#c_people')?.closest('div')?.querySelector('label'),
+      'We add ~230 BTU/hr sensible for each person beyond two.');
+
+    addTooltip(document.querySelector('#h_delta')?.closest('div')?.querySelector('label'),
+      'ΔT = Indoor setpoint – winter design outdoor temp. PHX example: 70 – 35 = 35°F.');
+    addTooltip(document.querySelector('#h_insul')?.closest('div')?.querySelector('label'),
+      'Envelope quality affects heating load as well.');
+    addTooltip(document.querySelector('#h_infil')?.closest('div')?.querySelector('label'),
+      'Leakier homes need more heat to maintain setpoint.');
+
+    // Render Lucide icons after dynamic inserts
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons();
+    }
   </script>
 
   <script defer src="https://online-booking.housecallpro.com/script.js?token=2fc32083d0d34a2d8eb08ce327d13565&orgName=Frost-Air"></script>
