@@ -7,7 +7,6 @@
 
   <meta name="description" content="Quick answers to common HVAC questions from Frost Air: maintenance, sizing, efficiency, and more." />
   <meta name="robots" content="index, follow" />
-
   <link rel="canonical" href="./faqs.html" />
 
   <meta property="og:title" content="Frost Air | HVAC FAQs" />
@@ -16,7 +15,6 @@
   <meta property="og:url" content="./faqs.html" />
   <meta property="og:type" content="website" />
 
-  <!-- Styles & libs -->
   <link rel="stylesheet" href="../css/styles.css" />
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -118,7 +116,7 @@
       </div>
 
       <div id="faq-accordion" class="divide-y divide-gray-200 rounded-2xl bg-white ring-1 ring-gray-200" role="list">
-        <!-- Example Q (all closed) -->
+        <!-- Q0 -->
         <div class="p-4 md:p-5" role="listitem">
           <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
                   aria-expanded="false" aria-controls="faq0-content" id="faq0-button">
@@ -134,8 +132,197 @@
           </div>
         </div>
 
-        <!-- Repeat same pattern for Q1..Q12 -->
-        <!-- (all aria-expanded="false", plus sign, and grid-rows-[0fr] opacity-0) -->
+        <!-- Q1 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq1-content" id="faq1-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What is the average life expectancy of an HVAC system?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq1-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq1-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Most systems last 10–15 years, depending on maintenance and usage.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq2-content" id="faq2-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">How often should I change my air filters?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq2-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq2-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Every 1–3 months for disposable filters; washable filters should be cleaned monthly.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq3-content" id="faq3-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What is ENERGY STAR?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq3-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq3-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              ENERGY STAR is a government-backed program certifying products for energy efficiency.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq4-content" id="faq4-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What is SEER?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq4-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq4-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Seasonal Energy Efficiency Ratio—measures cooling efficiency; higher numbers mean more efficient units.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq5-content" id="faq5-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What is a MERV rating?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq5-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq5-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Minimum Efficiency Reporting Value—rates how well a filter captures particles; higher ratings mean better filtration.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq6-content" id="faq6-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">How can I tell if my heating system is working properly and efficiently?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq6-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq6-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Look for even temperatures, normal energy bills, steady run times, and no unusual noises or smells. Annual tune-ups help verify efficiency.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq7-content" id="faq7-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What should I consider when purchasing an air conditioner?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq7-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq7-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Proper size (Manual J), efficiency (SEER/SEER2), warranty, installation quality, noise, and budget/rebates/financing.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq8-content" id="faq8-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">Should I replace or repair my HVAC system?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq8-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq8-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              If repairs exceed ~50% of the cost of a new system or the system is 10–15+ years old, replacement often makes more sense.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq9-content" id="faq9-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">What goes into having an HVAC system installed?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq9-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq9-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Load calculation, equipment selection, permits, ductwork/electrical as needed, installation, refrigerant charging, testing/commissioning.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq10-content" id="faq10-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">How can I increase my HVAC system’s efficiency?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq10-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq10-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Change filters, seal/insulate ducts, schedule maintenance, use a programmable/smart thermostat, shade windows, and set reasonable temps.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq11-content" id="faq11-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">At what temperature should I set my thermostat?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq11-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq11-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Common guidance: 78°F in summer and 68°F in winter for a comfort/efficiency balance (adjust to taste).
+            </div>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="p-4 md:p-5" role="listitem">
+          <button class="faq-btn flex w-full items-center justify-between gap-3 text-left"
+                  aria-expanded="false" aria-controls="faq12-content" id="faq12-button">
+            <span class="text-base md:text-lg font-medium text-gray-900">How do I know what size AC I need?</span>
+            <span class="faq-icon text-gray-500 text-xl leading-none select-none">+</span>
+          </button>
+          <div id="faq12-content"
+               class="faq-panel grid transition-[grid-template-rows,opacity,margin] duration-300 grid-rows-[0fr] opacity-0"
+               role="region" aria-labelledby="faq12-button">
+            <div class="overflow-hidden text-sm md:text-base text-gray-700 leading-relaxed">
+              Use our HVAC Load Calculator for a ballpark. We confirm with a professional Manual J during your quote.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
