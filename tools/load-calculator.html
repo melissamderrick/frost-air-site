@@ -28,17 +28,21 @@
 
   
 <header class="site-header sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md shadow-blue-200 overflow-visible">
-  <div class="max-w-7xl mx-auto px-4 overflow-visible">
+<div class="h-16 sm:h-18 md:h-24 flex items-center justify-between">
     <div class="min-h-16 sm:min-h-18 md:min-h-24 py-2 flex items-start justify-between">
       
-      <a href="../index.html" class="inline-flex items-center gap-2 overflow-visible" aria-label="Frost Air home">
+        <a href="../index.html" class="relative inline-flex items-start">
           <img
             src="../assets/FrostAir_HorizontalDark.png"
             alt="Frost Air Heating & Cooling Logo"
-            class="block w-auto max-h-36 sm:max-h-40 md:max-h-44 drop-shadow-lg -mb-4"
+            class="absolute left-0 top-0 w-auto max-h-32 sm:max-h-36 md:max-h-40 lg:max-h-44 drop-shadow-lg"
             loading="eager"
-          />   
-      </a>
+            fetchpriority="high"
+          />
+          <!-- spacer keeps the header layout stable -->
+          <span class="block w-28 sm:w-36 md:w-48 lg:w-56 h-16 sm:h-18 md:h-24"></span>
+        </a>
+
 
       <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6 text-base lg:text-lg">
         <a href="../index.html" class="hover:text-blue-500">Home</a>
