@@ -22,6 +22,14 @@ body {
 .site-header {
   -webkit-backdrop-filter: blur(10px); /* Safari */
   backdrop-filter: blur(10px);
+
+  /* NEW: prevent logo / shadow clipping in sticky header */
+  overflow: visible;
+}
+
+/* NEW: remove tiny baseline crop some browsers apply to inline images */
+.site-header img {
+  display: block;
 }
 
 /* Font tweaks */
@@ -72,7 +80,10 @@ html { scroll-behavior: smooth; }
   grid-template-rows: 1fr;       /* expanded */
   opacity: 1;
 }
-.mobileNav-inner {
+
+/* CHANGED: scope overflow hidden ONLY to the mobile drawer */
+#mobileNav .mobileNav-inner {
   overflow: hidden;              /* hides contents while height animates */
 }
+
 /* End */
